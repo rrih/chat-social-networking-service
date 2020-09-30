@@ -57,12 +57,12 @@ class PostsTable extends Table
         $validator
             ->scalar('username')
             ->maxLength('username', 100)
-            ->allowEmptyString('username');
+            ->notEmpty('username', 'ユーザー名を入力してください。');
 
         $validator
             ->scalar('text')
             ->maxLength('text', 100)
-            ->allowEmptyString('text');
+            ->notEmpty('text', 'お気持ち表明を入力してください。');
 
         return $validator;
     }

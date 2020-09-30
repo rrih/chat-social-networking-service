@@ -32,6 +32,19 @@ use Cake\View\Exception\MissingTemplateException;
 class PagesController extends AppController
 {
     /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function index()
+    {
+        // $posts = $this->paginate($this->Posts);
+
+        // $this->set(compact('posts'));
+        $this->render('/posts/index');
+    }
+
+    /**
      * Displays a view
      *
      * @param string ...$path Path segments.
