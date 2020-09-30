@@ -62,7 +62,7 @@ class PagesControllerTest extends TestCase
      */
     public function testMissingTemplate()
     {
-        Configure::write('debug', false);
+        Configure::write('debug', 2);
         $this->get('/pages/not_existing');
 
         $this->assertResponseError();
