@@ -76,8 +76,8 @@ class PostsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
+        // $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
 
-        return $rules;
+        // return $rules;
     }
 }
