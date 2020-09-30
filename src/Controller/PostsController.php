@@ -11,6 +11,7 @@ namespace App\Controller;
  */
 class PostsController extends AppController
 {
+    public $components = array('Csrf');
     /**
      * Index method
      *

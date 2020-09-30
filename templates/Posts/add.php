@@ -5,8 +5,8 @@
  */
 ?>
 <div class="row">
-    <div class="column-responsive column-80">
-        <div class="posts form content">
+    <div>
+        <div class="form">
             <?= $this->Form->create($post) ?>
             <fieldset>
                 <legend><?= __('お気持ち表明画面') ?></legend>
