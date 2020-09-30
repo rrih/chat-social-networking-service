@@ -64,20 +64,14 @@ class PostsTable extends Table
             ->maxLength('text', 100)
             ->notEmpty('text', 'お気持ち表明を入力してください。');
 
+        $validator
+            ->nonNegativeInteger('like_count')
+            ->allowEmptyString('like_count');
+
+        $validator
+            ->nonNegativeInteger('dislike_count')
+            ->allowEmptyString('dislike_count');
+
         return $validator;
     }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    // public function buildRules(RulesChecker $rules): RulesChecker
-    // {
-    //     $rules->add($rules->isUnique(['username']), ['errorField' => 'username']);
-
-    //     return $rules;
-    // }
 }

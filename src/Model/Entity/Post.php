@@ -11,6 +11,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string|null $username
  * @property string|null $text
+ * @property int|null $like_count
+ * @property int|null $dislike_count
  */
 class Post extends Entity
 {
@@ -26,5 +28,7 @@ class Post extends Entity
     protected $_accessible = [
         'username' => true,
         'text' => true,
+        'like_count' => true,
+        'dislike_count' => true,
     ];
 }

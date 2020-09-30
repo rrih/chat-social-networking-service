@@ -24,23 +24,6 @@ class PostsController extends AppController
     }
 
     /**
-     * View method
-     *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null|void Renders view
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    // view は不要
-    // public function view($id = null)
-    // {
-    //     $post = $this->Posts->get($id, [
-    //         'contain' => [],
-    //     ]);
-
-    //     $this->set(compact('post'));
-    // }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
@@ -59,47 +42,44 @@ class PostsController extends AppController
         $this->set(compact('post'));
     }
 
+    // いちいちリダイレクトしてるの、多分直した方が良いけどこれSPA化しないと実現できない感じ？
     /**
-     * Edit method
+     * いいね数カウント用
      *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @param [type] $id
+     * @return void
      */
-    // public function edit($id = null)
-    // {
-    //     $post = $this->Posts->get($id, [
-    //         'contain' => [],
-    //     ]);
-    //     if ($this->request->is(['patch', 'post', 'put'])) {
-    //         $post = $this->Posts->patchEntity($post, $this->request->getData());
-    //         if ($this->Posts->save($post)) {
-    //             $this->Flash->success(__('The post has been saved.'));
-
-    //             return $this->redirect(['action' => 'index']);
-    //         }
-    //         $this->Flash->error(__('The post could not be saved. Please, try again.'));
-    //     }
-    //     $this->set(compact('post'));
-    // }
+    public function plusLikeCount($id = null)
+    {
+        $post = $this->Posts->get($id);
+        $post->like_count += 1;
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $post = $this->Posts->patchEntity($post, $this->request->getData());
+            if ($this->Posts->save($post)) {
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('エラーが発生しました'));
+        }
+        $this->set(compact('post'));
+    }
 
     /**
-     * Delete method
+     * わるいいね数カウント用
      *
-     * @param string|null $id Post id.
-     * @return \Cake\Http\Response|null|void Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     * @param [type] $id
+     * @return void
      */
-    // public function delete($id = null)
-    // {
-    //     $this->request->allowMethod(['post', 'delete']);
-    //     $post = $this->Posts->get($id);
-    //     if ($this->Posts->delete($post)) {
-    //         $this->Flash->success(__('The post has been deleted.'));
-    //     } else {
-    //         $this->Flash->error(__('The post could not be deleted. Please, try again.'));
-    //     }
-
-    //     return $this->redirect(['action' => 'index']);
-    // }
+    public function plusDislikeCount($id = null)
+    {
+        $post = $this->Posts->get($id);
+        $post->dislike_count += 1;
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $post = $this->Posts->patchEntity($post, $this->request->getData());
+            if ($this->Posts->save($post)) {
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('エラーが発生しました'));
+        }
+        $this->set(compact('post'));
+    }
 }

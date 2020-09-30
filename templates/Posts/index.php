@@ -13,6 +13,10 @@
                 <div class="m-5">
                     <div class="border"><?= h($post->username) ?></div>
                     <div class="border"><?= h($post->text) ?></div>
+                    <div class="border">
+                        <?= $this->Form->postLink(__('👍'), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-success']) ?><?= $post->like_count?>
+                        <?= $this->Form->postLink(__('👎'), ['controller' => 'Posts', 'action' => 'plusDislikeCount', $post->id], ['class' => 'btn btn-danger']) ?><?= $post->dislike_count?>
+                    </div>
                 </div>
                 <?php endforeach; ?>
             </div>
