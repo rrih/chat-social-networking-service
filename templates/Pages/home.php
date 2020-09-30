@@ -58,6 +58,10 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
             <h1>
                 Welcome to CakePHP <?php echo Configure::version() ?> Strawberry (🍓)
             </h1>
+            <?= debug(env('DB_HOST')) ?>
+            <?= debug(env('DB_USERNAME')) ?>
+            <?= debug(env('DB_PASSWORD')) ?>
+            <?= debug(env('DB_DATABASE')) ?>
         </div>
     </header>
     <main class="main">
