@@ -128,4 +128,33 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
         // Load more plugins here
     }
+
+    public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
+    {
+        $authenticationService = new AuthenticationService([
+            'unauthenticatedRedirect' => '/users/login',
+            'queryParam' => 'redirect',
+        ]);
+
+        // 識別子をロードして、電子メールとパスワードのフィールドを確認します
+        $authenticationService->loadIdentifier('Authentication.Password', [
+            'fields' => [
+                'username' => 'email',
+                'password' => 'password',
+            ]
+        ]);
+
+        // 認証子をロードするには、最初にセッションを実行する必要があります
+        $authenticationService->loadAuthenticator('Authentication.Session');
+        // メールとパスワードを選択するためのフォームデータチェックの設定
+        $authenticationService->loadAuthenticator('Authentication.Form', [
+            'fields' => [
+                'username' => 'email',
+                'password' => 'password',
+            ],
+            'loginUrl' => '/users/login',
+        ]);
+
+        return $authenticationService;
+    }
 }
