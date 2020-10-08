@@ -137,6 +137,7 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
         ]);
 
         // 識別子をロードして、電子メールとパスワードのフィールドを確認します
+        // TODO 現状認証で見てるのはここらへんか？後で直す
         $authenticationService->loadIdentifier('Authentication.Password', [
             'fields' => [
                 'username' => 'email',

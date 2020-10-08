@@ -18,7 +18,8 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->set('users', $this->Users->find('all'));
+        $users = $this->Users;
+        $this->set('users', $this->paginate($users));
     }
 
     /**
@@ -45,10 +46,10 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
-                return $this->redirect(['action' => 'add']);
+                $this->Flash->success(__('登録できたよ〜！'));
+                return $this->redirect(['action' => 'login']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('すまん、もう一度頼むわ'));
         }
         $this->set('user', $user);
     }
@@ -62,14 +63,11 @@ class UsersController extends AppController
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, [
-            'contain' => [],
-        ]);
+        $user = $this->Users->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
@@ -113,7 +111,7 @@ class UsersController extends AppController
         if ($result->isValid()) {
             // ログイン成功後に /article にリダイレクトします
             $redirect = $this->request->getQuery('redirect', [
-                'controller' => 'Articles',
+                'controller' => 'Posts',
                 'action' => 'index',
             ]);
 

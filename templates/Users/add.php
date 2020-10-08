@@ -7,7 +7,7 @@
 <div class="users form">
 <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Add User') ?></legend>
+        <legend><?= __('ユーザ登録') ?></legend>
         <?= $this->Form->control('email') ?>
         <?= $this->Form->control('password') ?>
     </fieldset>

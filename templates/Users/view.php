@@ -4,6 +4,7 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
+<!-- TODO ユーザー詳細ページを作っていく -->
 <div class="row">
     <aside class="column">
         <div class="side-nav">
