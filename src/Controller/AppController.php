@@ -59,7 +59,7 @@ class AppController extends Controller
         parent::beforeFilter($event);
         // このアプリケーションのすべてのコントローラのために、
         // インデックスとビューのアクションを公開し、認証チェックをスキップします
-        $this->Authentication->addUnauthenticatedActions(['index', 'view']);
+        $this->Authentication->addUnauthenticatedActions(['index', 'view', 'home']);
     }
 
 }

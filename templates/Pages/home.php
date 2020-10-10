@@ -70,6 +70,8 @@ $cakeDescription = 'お気持ち.com';
                         <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5']) ?>
                     </div>
                 </div>
+                <h2>2020/10/10</h2>
+                <p>ユーザー登録機能が追加されましたのでメールアドレス、パスワードを登録しろって言われますがマジなデータは入れないようにしてください。。。</p>
             </div>
         </div>
     </main>
