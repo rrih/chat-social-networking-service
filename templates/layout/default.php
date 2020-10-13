@@ -41,6 +41,7 @@ $cakeDescription = 'お気持ち.com';
         </div>
         <div>
             <div>
+            <!-- TODO 未ログイン時は表示しないようにする -->
                 <?= $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) ?>
             </div>
             <div>

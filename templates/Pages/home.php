@@ -52,7 +52,13 @@ $cakeDescription = 'お気持ち.com';
             お気持ち.com
         </div>
         <div>
-            <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
+            <div>
+                <!-- TODO 未ログイン時は表示しない -->
+                <?= $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) ?>
+            </div>
+            <div>
+                <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
+            </div>
         </div>
     </header>
     <main class="main">
