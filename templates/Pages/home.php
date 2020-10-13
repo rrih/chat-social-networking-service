@@ -53,8 +53,7 @@ $cakeDescription = 'お気持ち.com';
         </div>
         <div>
             <div>
-                <!-- TODO 未ログイン時は表示しない -->
-                <?= $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) ?>
+                <?= !$isLogin ? $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) : null ?>
             </div>
             <div>
                 <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>

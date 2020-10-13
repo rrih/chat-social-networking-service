@@ -58,6 +58,8 @@ class PagesController extends AppController
      */
     public function display(string ...$path): ?Response
     {
+        $isLogin = $this->Authentication->getResult()->isValid();
+
         if (!$path) {
             return $this->redirect('/');
         }
@@ -72,7 +74,7 @@ class PagesController extends AppController
         if (!empty($path[1])) {
             $subpage = $path[1];
         }
-        $this->set(compact('page', 'subpage'));
+        $this->set(compact('page', 'subpage', 'isLogin'));
 
         try {
             return $this->render(implode('/', $path));
@@ -83,10 +85,4 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
-
-    // public function beforeFilter(\Cake\Event\EventInterface $event)
-    // {
-    //     parent::beforeFilter($event);
-    //     $this->Authentication->addUnauthenticatedActions(['pages']);
-    // }
 }
