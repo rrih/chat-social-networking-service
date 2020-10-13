@@ -40,7 +40,12 @@ $cakeDescription = 'お気持ち.com';
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
         </div>
         <div>
-            <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
+            <div>
+                <?= $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) ?>
+            </div>
+            <div>
+                <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
+            </div>
         </div>
     </nav>
     <main class="main">
