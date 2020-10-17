@@ -17,6 +17,11 @@
                         <?= $this->Form->postLink(__('👍'), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-success']) ?><?= $post->like_count?>
                         <?= $this->Form->postLink(__('👎'), ['controller' => 'Posts', 'action' => 'plusDislikeCount', $post->id], ['class' => 'btn btn-danger']) ?><?= $post->dislike_count?>
                     </div>
+                    <?php if ($post->created) { ?>
+                        <div class="border">
+                            投稿日時 <?= $post->created->format('yy-m-d h:m:s') ?>
+                        </div>
+                    <?php } ?>
                 </div>
                 <?php endforeach; ?>
             </div>

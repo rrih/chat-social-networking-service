@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\I18n\Time;
 
 /**
  * Posts Controller
@@ -31,6 +32,8 @@ class PostsController extends AppController
     public function add()
     {
         $post = $this->Posts->newEmptyEntity();
+        $post->created = Time::now();
+        $post->modified = Time::now();
         if ($this->request->is('post')) {
             $post = $this->Posts->patchEntity($post, $this->request->getData());
             if ($this->Posts->save($post)) {
