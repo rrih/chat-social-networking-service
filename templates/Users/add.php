@@ -7,8 +7,8 @@
 <div class="users form">
     <?= $this->Form->create($user) ?>
         <div><?= __('ユーザ登録') ?></div>
-        <?= $this->Form->control('メールアドレス') ?>
-        <?= $this->Form->control('パスワード') ?>
+        <?= $this->Form->control('email', ['label' => 'メールアドレス', 'required' => true]) ?>
+        <?= $this->Form->control('password', ['label' => 'パスワード', 'required' => true]) ?>
         <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary']); ?>
     <?= $this->Form->end() ?>
 </div>
