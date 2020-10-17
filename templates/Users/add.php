@@ -5,12 +5,10 @@
  */
 ?>
 <div class="users form">
-<?= $this->Form->create($user) ?>
-    <fieldset>
-        <legend><?= __('ユーザ登録') ?></legend>
-        <?= $this->Form->control('email') ?>
-        <?= $this->Form->control('password') ?>
-    </fieldset>
-<?= $this->Form->button(__('Submit')); ?>
-<?= $this->Form->end() ?>
+    <?= $this->Form->create($user) ?>
+        <div><?= __('ユーザ登録') ?></div>
+        <?= $this->Form->control('メールアドレス') ?>
+        <?= $this->Form->control('パスワード') ?>
+        <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary']); ?>
+    <?= $this->Form->end() ?>
 </div>

@@ -27,10 +27,7 @@ $cakeDescription = 'お気持ち.com';
         </div>
         <div>
             <div>
-                <?php
-                    // TODO 未ログイン時、非表示にする
-                    echo $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none'])// : null
-                ?>
+                <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) : $this->Html->link(__('ログアウトする'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none']) ?>
             </div>
             <div>
                 <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>

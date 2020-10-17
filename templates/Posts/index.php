@@ -5,27 +5,23 @@
  */
 ?>
 <div class="container text-center">
-    <h3><?= __('お気持ち表明一覧') ?></h3>
-    <div>
-        <div class="mx-auto">
-            <div>
-                <?php foreach ($posts as $post): ?>
-                <div class="m-5">
-                    <div class="border"><?= h($post->username) ?></div>
-                    <div class="border"><?= h($post->text) ?></div>
-                    <div class="border">
-                        <?= $this->Form->postLink(__('👍'), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-success']) ?><?= $post->like_count?>
-                        <?= $this->Form->postLink(__('👎'), ['controller' => 'Posts', 'action' => 'plusDislikeCount', $post->id], ['class' => 'btn btn-danger']) ?><?= $post->dislike_count?>
-                    </div>
-                    <?php if ($post->created) { ?>
-                        <div class="border">
-                            投稿日時 <?= $post->created->format('yy-m-d h:m:s') ?>
-                        </div>
-                    <?php } ?>
+    <div class="mx-auto">
+        <?php foreach ($posts as $post): ?>
+            <!-- post card -->
+            <div class="card mb-2">
+                <div class="card-header h5 border-bottom"><?= h($post->username) ?></div>
+                <div class="card-body"><?= h($post->text) ?></div>
+                <div class="card-text">
+                    <?= $this->Form->postLink(__('👍'), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-success']) ?><?= $post->like_count?>
+                    <?= $this->Form->postLink(__('👎'), ['controller' => 'Posts', 'action' => 'plusDislikeCount', $post->id], ['class' => 'btn btn-danger']) ?><?= $post->dislike_count?>
                 </div>
-                <?php endforeach; ?>
+                <?php if ($post->created) { ?>
+                    <div class="card-footer text-muted">
+                        投稿日時 <?= $post->created->format('yy-m-d h:m:s') ?>
+                    </div>
+                <?php } ?>
             </div>
-        </div>
+        <?php endforeach; ?>
     </div>
     <div class="paginator">
         <ul class="pagination">
