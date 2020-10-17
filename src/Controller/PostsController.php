@@ -38,6 +38,7 @@ class PostsController extends AppController
         $post->modified = Time::now();
         if ($this->request->is('post')) {
             $post = $this->Posts->patchEntity($post, $this->request->getData());
+            $post->username = $user->name;
             if ($this->Posts->save($post)) {
                 $this->Flash->success(__('お気持ち表明成功'));
                 return $this->redirect(['action' => 'index']);

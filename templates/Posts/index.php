@@ -9,7 +9,7 @@
         <?php foreach ($posts as $post): ?>
             <!-- post card -->
             <div class="card my-3 shadow-sm">
-                <div class="card-header h5 border-bottom"><?= h($post->username) ?></div>
+                <div class="card-header h5 border-bottom"><?= $post->username ? $post->username : 'null' ?></div>
                 <div class="card-body"><?= h($post->text) ?></div>
                 <div class="card-text">
                     <?= $this->Form->postLink(__('👍'), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-success']) ?><?= $post->like_count?>
@@ -26,9 +26,9 @@
     <div class="paginator">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <?= $this->Paginator->prev('<') ?>
+                <?= $this->Paginator->prev('←') ?>
                 <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next('>') ?>
+                <?= $this->Paginator->next('→') ?>
             </ul>
         </nav>
     </div>
