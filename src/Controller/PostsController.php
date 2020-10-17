@@ -70,7 +70,7 @@ class PostsController extends AppController
             $post = $this->Posts->get($id);
             $post->like_count += 1;
             if ($this->Posts->save($post)) {
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect($this->referer());
             }
             $this->Flash->error(__('エラーが発生しました'));
         }
@@ -95,7 +95,7 @@ class PostsController extends AppController
             $post = $this->Posts->get($id);
             $post->dislike_count += 1;
             if ($this->Posts->save($post)) {
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect($this->referer());
             }
             $this->Flash->error(__('エラーが発生しました'));
         }
