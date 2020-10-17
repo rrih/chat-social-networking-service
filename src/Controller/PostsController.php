@@ -20,7 +20,6 @@ class PostsController extends AppController
     public function index()
     {
         $posts = $this->paginate($this->Posts);
-
         $this->set(compact('posts'));
     }
 
@@ -31,6 +30,9 @@ class PostsController extends AppController
      */
     public function add()
     {
+        $this->loadModel('Users');
+        $id = $this->Authentication->getResult()->getData()->id;
+        $user = $this->Users->get($id);
         $post = $this->Posts->newEmptyEntity();
         $post->created = Time::now();
         $post->modified = Time::now();
@@ -42,6 +44,7 @@ class PostsController extends AppController
             }
             $this->Flash->error(__('お気持ち表明失敗…もう一度やり直してください'));
         }
+        $this->set(compact('user'));
         $this->set(compact('post'));
     }
 
@@ -54,16 +57,22 @@ class PostsController extends AppController
      */
     public function plusLikeCount($id = null)
     {
-        $post = $this->Posts->get($id);
-        $post->like_count += 1;
+        $this->autoRender = false;
+        $this->loadModel('Users');
+        $isLogin = $this->Authentication->getResult()->isValid();
+        if (!$isLogin) {
+            // ログインしていなかったらログインページへ飛ばす
+            return $this->redirect('/users/login');
+        }
+
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->patchEntity($post, $this->request->getData());
+            $post = $this->Posts->get($id);
+            $post->like_count += 1;
             if ($this->Posts->save($post)) {
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('エラーが発生しました'));
         }
-        $this->set(compact('post'));
     }
 
     /**
@@ -74,15 +83,20 @@ class PostsController extends AppController
      */
     public function plusDislikeCount($id = null)
     {
-        $post = $this->Posts->get($id);
-        $post->dislike_count += 1;
+        $this->autoRender = false;
+        $this->loadModel('Users');
+        $isLogin = $this->Authentication->getResult()->isValid();
+        if (!$isLogin) {
+            // ログインしていなかったらログインページへ飛ばす
+            return $this->redirect('/users/login');
+        }
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->patchEntity($post, $this->request->getData());
+            $post = $this->Posts->get($id);
+            $post->dislike_count += 1;
             if ($this->Posts->save($post)) {
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('エラーが発生しました'));
         }
-        $this->set(compact('post'));
     }
 }

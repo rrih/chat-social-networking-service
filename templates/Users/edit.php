@@ -6,29 +6,16 @@
 ?>
 <!-- TODO ユーザー編集画面 -->
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $user->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $user->id), 'class' => 'side-nav-item']
-            ) ?>
-            <?= $this->Html->link(__('List Users'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="users form content">
             <?= $this->Form->create($user) ?>
-            <fieldset>
-                <legend><?= __('Edit User') ?></legend>
+                <div>ユーザー編集</div>
                 <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('password');
+                    echo $this->Form->control('name', ['label' => 'ユーザー名']);
+                    echo $this->Form->control('email', ['label' => 'メールアドレス']);
+                    echo $this->Form->control('password', ['label' => 'パスワード']);
                 ?>
-            </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+                <?= $this->Form->button(__('更新する'), ['class' => 'btn btn-outline-primary']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

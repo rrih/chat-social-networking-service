@@ -8,13 +8,11 @@
     <div>
         <div class="form">
             <?= $this->Form->create($post) ?>
-            <fieldset>
-                <legend><?= __('お気持ち表明画面') ?></legend>
+                <div>お気持ち表明画面</div>
+                ユーザー名: <?= $user->name != null ? $user->name : 'null' ?> <a href="/users/edit/<?= $user->id ?>">編集する</a>
                 <?php
-                    echo $this->Form->control('username', ['label' => 'ユーザー名']);
                     echo $this->Form->control('text', ['label' => 'お気持ち内容']);
                 ?>
-            </fieldset>
             <?= $this->Form->button(__('この内容でお気持ち表明する'), ['class' => 'btn btn-outline-primary']) ?>
             <?= $this->Form->end() ?>
         </div>

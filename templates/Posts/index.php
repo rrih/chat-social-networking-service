@@ -8,7 +8,7 @@
     <div class="mx-auto">
         <?php foreach ($posts as $post): ?>
             <!-- post card -->
-            <div class="card mb-2">
+            <div class="card my-3 shadow-sm">
                 <div class="card-header h5 border-bottom"><?= h($post->username) ?></div>
                 <div class="card-body"><?= h($post->text) ?></div>
                 <div class="card-text">
@@ -24,12 +24,12 @@
         <?php endforeach; ?>
     </div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('最初へ'), ['class' => 'btn btn-outline-primary']) ?>
-            <?= $this->Paginator->prev('< ' . __('前へ')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('次へ') . ' >') ?>
-            <?= $this->Paginator->last(__('最後へ') . ' >>') ?>
-        </ul>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <?= $this->Paginator->prev('<') ?>
+                <?= $this->Paginator->numbers() ?>
+                <?= $this->Paginator->next('>') ?>
+            </ul>
+        </nav>
     </div>
 </div>
