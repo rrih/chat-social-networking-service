@@ -9,10 +9,12 @@ use Cake\ORM\Entity;
  * Post Entity
  *
  * @property int $id
- * @property string|null $username
+ * @property int $user_id
  * @property string|null $text
  * @property int|null $like_count
  * @property int|null $dislike_count
+ * @property \Cake\I18n\FrozenTime|null $created
+ * @property \Cake\I18n\FrozenTime|null $modified
  */
 class Post extends Entity
 {
@@ -26,9 +28,11 @@ class Post extends Entity
      * @var array
      */
     protected $_accessible = [
-        'username' => true,
+        'user_id' => true,
         'text' => true,
         'like_count' => true,
         'dislike_count' => true,
+        'created' => true,
+        'modified' => true,
     ];
 }

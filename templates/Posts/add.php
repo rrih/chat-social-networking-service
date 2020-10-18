@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Post $post
  */
 ?>
-<div class="row">
+<div class="container">
     <div class="form w-100">
         <?= $this->Form->create($post) ?>
             <div>お気持ち表明画面</div>

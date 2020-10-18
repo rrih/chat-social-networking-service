@@ -19,19 +19,31 @@ class PostsController extends AppController
      */
     public function index()
     {
+        $this->loadModel('Users');
+        $id = $this->Authentication->getResult()->getData()->id;
+        $user = $this->Users->get($id);
         $posts = $this->Posts->find()
             ->select([
                 'id',
-                'username',
+                'user_id',
+                'user_name' => 'Users.name',
                 'text',
                 'like_count',
                 'dislike_count',
-                'created',
+                'post_created' => 'Posts.created',
+            ])
+            ->join([
+                'Users' => [
+                    'table' => 'users',
+                    'type' => 'left',
+                    'conditions' => 'Users.id = Posts.user_id',
+                ]
             ])
             ->order([
-                'created' => 'desc',
+                'post_created' => 'desc',
             ]);
         $this->paginate($posts);
+        $this->set(compact('user'));
         $this->set(compact('posts'));
     }
 
@@ -46,13 +58,12 @@ class PostsController extends AppController
         $id = $this->Authentication->getResult()->getData()->id;
         $user = $this->Users->get($id);
         $post = $this->Posts->newEmptyEntity();
-        $post->created = Time::now();
-        $post->modified = Time::now();
         if ($this->request->is('post')) {
             $post = $this->Posts->patchEntity($post, $this->request->getData());
-            $post->username = $user->name;
+            $post->user_id = $user->id;
+            $post->created = Time::now();
+            $post->modified = Time::now();
             if ($this->Posts->save($post)) {
-                $this->Flash->success(__('お気持ち表明成功'));
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('お気持ち表明失敗…もう一度やり直してください'));

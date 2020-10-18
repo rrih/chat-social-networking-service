@@ -35,7 +35,27 @@ $cakeDescription = 'お気持ち.com';
         </div>
     </nav>
     <main class="main">
-        <div class="container">
+        <div class="container d-md-flex">
+
+            <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
+            <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
+                <div>
+                <a href="/posts">
+                    <i class="fas fa-home"></i>
+                </a>
+                </div>
+                <div>
+                <a href="/users/edit/<?= $user->id ?>">
+                    <i class="fas fa-user"></i>
+                </a>
+                </div>
+                <div>
+                <a href="/users/likes">
+                    <i class="far fa-thumbs-up"></i>
+                </a>
+                </div>
+            </div>
+
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
