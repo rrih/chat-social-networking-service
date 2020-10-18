@@ -24,12 +24,12 @@
         <?php endforeach; ?>
     </div>
     <div class="paginator text-center">
-        <ul class="pagination">
-            <?= $this->Paginator->prev('←', ['class' => 'page-link']) ?>
-            <?= $this->Paginator->numbers(array(
-                'class' => 'page-link'
-            )) ?>
-            <?= $this->Paginator->next('→', ['class' => 'page-link']) ?>
+        <ul class="pagination justify-content-center">
+            <?= $this->Paginator->first('最初へ') ?>
+            <?= $this->Paginator->prev('←') ?>
+            <?= $this->Paginator->numbers() ?>
+            <?= $this->Paginator->next('→') ?>
+            <?= $this->Paginator->last('最後へ') ?>
         </ul>
     </div>
 </div>
