@@ -61,7 +61,7 @@ class PostsTable extends Table
 
         $validator
             ->scalar('text')
-            ->maxLength('text', 100)
+            ->maxLength('text', 1000)
             ->notEmpty('text', 'お気持ち表明を入力してください。');
 
         $validator
