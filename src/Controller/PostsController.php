@@ -21,6 +21,7 @@ class PostsController extends AppController
     {
         $posts = $this->Posts->find()
             ->select([
+                'id',
                 'username',
                 'text',
                 'like_count',
@@ -76,15 +77,13 @@ class PostsController extends AppController
             // ログインしていなかったらログインページへ飛ばす
             return $this->redirect('/users/login');
         }
-
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->get($id);
-            $post->like_count += 1;
-            if ($this->Posts->save($post)) {
-                return $this->redirect($this->referer());
-            }
-            $this->Flash->error(__('エラーが発生しました'));
+        $post = $this->Posts->get($id);
+        $postEntity = $this->Posts->patchEntity($post, $this->request->getData());
+        $postEntity->like_count = $postEntity->like_count + 1;
+        if (!$this->Posts->save($post)) {
+            $this->Flash->error(__('like できませんでした'));
         }
+        return $this->redirect(['action' => 'index']);
     }
 
     /**
@@ -102,13 +101,12 @@ class PostsController extends AppController
             // ログインしていなかったらログインページへ飛ばす
             return $this->redirect('/users/login');
         }
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $post = $this->Posts->get($id);
-            $post->dislike_count += 1;
-            if ($this->Posts->save($post)) {
-                return $this->redirect($this->referer());
-            }
-            $this->Flash->error(__('エラーが発生しました'));
+        $post = $this->Posts->get($id);
+        $postEntity = $this->Posts->patchEntity($post, $this->request->getData());
+        $postEntity->dislike_count = $postEntity->dislike_count + 1;
+        if (!$this->Posts->save($post)) {
+            $this->Flash->error(__('dislike できませんでした'));
         }
+        return $this->redirect(['action' => 'index']);
     }
 }

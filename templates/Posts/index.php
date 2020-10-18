@@ -12,8 +12,28 @@
                 <div class="card-header h5 border-bottom"><?= $post->username ? $post->username : 'null' ?></div>
                 <div class="card-body"><?= h($post->text) ?></div>
                 <div class="card-text">
-                    <?= $this->Form->postLink(__('👍 ' . $post->like_count), ['controller' => 'Posts', 'action' => 'plusLikeCount', $post->id], ['class' => 'btn btn-outline-success']) ?>
-                    <?= $this->Form->postLink(__('👎 ' . $post->dislike_count), ['controller' => 'Posts', 'action' => 'plusDislikeCount', $post->id], ['class' => 'btn btn-outline-danger']) ?>
+                    <?= $this->Form->postLink(
+                        __('👍 ' . $post->like_count),
+                        [
+                            'action' => 'plusLikeCount',
+                            $post->id
+                        ],
+                        [
+                            'class' => 'btn btn-outline-success'
+                        ]
+                    )
+                    ?>
+                    <?= $this->Form->postLink(
+                        __('👎 ' . $post->dislike_count),
+                        [
+                            'action' => 'plusDislikeCount',
+                            $post->id
+                        ],
+                        [
+                            'class' => 'btn btn-outline-danger'
+                        ]
+                    )
+                    ?>
                 </div>
                 <?php if ($post->created) { ?>
                     <div class="card-footer text-muted">
