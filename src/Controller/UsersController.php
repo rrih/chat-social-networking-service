@@ -75,6 +75,11 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
+    public function likes($id = null)
+    {
+        // TODO 任意のユーザが like したものを全て引っ張ってくる
+    }
+
     // user の削除は論理削除で行う。 物理削除は admin 用の画面からのみ行えるようにする
     /**
      * Delete method
