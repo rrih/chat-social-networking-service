@@ -63,19 +63,13 @@ $cakeDescription = 'お気持ち.com';
         <div class="container">
             <div>
                 <div class="text-center m-5">
-                    お気持ちを表明、反応を返すwebサービスです。
-                    <br>
-                    環境分けてないので荒らさないで 😢
-                    <br>
-                    データは突然消えるかも
+                    自分のお気持ちを表明するwebサービスです
                 </div>
                 <div class="text-center">
                     <div>
                         <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5']) ?>
                     </div>
                 </div>
-                <h2>2020/10/10</h2>
-                <p>ユーザー登録機能が追加されましたのでメールアドレス、パスワードを登録しろって言われますが重要なデータ(曖昧)は入れないようにしてください。セキュリティてきとうの極みなので流出してもいいようなものでお願いします。<br>ちなみに email:admin@test.com password:test でログインできます。</p>
             </div>
         </div>
     </main>

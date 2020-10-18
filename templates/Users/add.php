@@ -4,11 +4,16 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="users form">
-    <?= $this->Form->create($user) ?>
-        <div><?= __('ユーザ登録') ?></div>
-        <?= $this->Form->control('email', ['label' => 'メールアドレス', 'required' => true]) ?>
-        <?= $this->Form->control('password', ['label' => 'パスワード', 'required' => true]) ?>
-        <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary']); ?>
-    <?= $this->Form->end() ?>
+<div class="text-center">
+    <?= $this->Flash->render() ?>
+    <div>ユーザ登録</div>
+    <div class="text-left">
+        <?= $this->Form->create($user) ?>
+            <?= $this->Form->control('email', ['label' => 'メールアドレス', 'required' => true, 'class' => 'form-control']) ?>
+            <?= $this->Form->control('password', ['label' => 'パスワード', 'required' => true, 'class' => 'form-control']) ?>
+            <div class="text-center my-3">
+                <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary']); ?>
+            </div>
+        <?= $this->Form->end() ?>
+    </div>
 </div>

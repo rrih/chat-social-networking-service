@@ -23,13 +23,13 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <div class="paginator">
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <?= $this->Paginator->prev('←') ?>
-                <?= $this->Paginator->numbers() ?>
-                <?= $this->Paginator->next('→') ?>
-            </ul>
-        </nav>
+    <div class="paginator text-center">
+        <ul class="pagination">
+            <?= $this->Paginator->prev('←', ['class' => 'page-link']) ?>
+            <?= $this->Paginator->numbers(array(
+                'class' => 'page-link'
+            )) ?>
+            <?= $this->Paginator->next('→', ['class' => 'page-link']) ?>
+        </ul>
     </div>
 </div>
