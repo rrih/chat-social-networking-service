@@ -47,9 +47,14 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <header class="text-lift navbar text-white flex-column flex-md-row bg-primary">
-        <div class="h2">
-            お気持ち.com
+    <header class="text-lift navbar text-white bg-primary p-0">
+        <div class="d-md-flex">
+            <div>お気持ち.com</div>
+            <div class="ml-md-3">
+                <a href="/posts" class="text-light">
+                    お気持ち表明一覧
+                </a>
+            </div>
         </div>
         <div>
             <div>
@@ -62,19 +67,47 @@ $cakeDescription = 'お気持ち.com';
     </header>
     <main class="main">
         <div class="container">
-            <div>
-                <div class="text-center m-5">
-                    自分のお気持ちを表明するwebサービスです
+            <div class="text-center">
+                <div class="h3 pt-5">
+                    お気持ち.com
                 </div>
-                <div class="text-center">
-                    <div>
-                        <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5']) ?>
+                <div class="py-5">
+                    <h3>ここは何？</h3>
+                    <p class="py-2">
+                        お気持ちを表明する場所です。<br>
+                        他人のお気持ち表明に対し、リアクションを送ることができます。<br>
+                        Twitterより治安の良いインターネット空間を目指します。
+                    </p>
+                </div>
+                <div class="border-top border-bottom">
+                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5']) ?>
+                </div>
+                <div class="py-5">
+                    <div class="h3">シェアする</div>
+                    <div class="d-flex justify-content-center" style="font-size: 30px">
+                        <div class="mx-4">
+                            <a href="http://twitter.com/intent/tweet?url=https://feel-prod.herokuapp.com&text=お気持ち表明の場"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="mx-4">
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-5">
+                    <div class="h3">ソース</div>
+                    <a href="https://github.com/rrih/feel" style="font-size: 30px"><i class="fab fa-github"></i></a>
+                </div>
+                <div class="py-5">
+                    <div class="h3">開発者</div>
+                    <div class="d-md-flex justify-content-center">
+                        <a href="https://twitter.com/rrih_dev" class="mx-4">Twitter</a>
+                        <a href="https://github.com/rrih" class="mx-4">GitHub</a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer navbar fixed-bottom text-center bg-primary text-light">
+    <footer class="footer navbar text-center bg-primary text-light">
         <div>お気持ち.com</div>
         <div>
             <a href="https://github.com/rrih/feel" class="text-light">GitHub</a>

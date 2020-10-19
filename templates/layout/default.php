@@ -21,9 +21,15 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <nav class="text-lift navbar text-white flex-column flex-md-row bg-primary">
-        <div class="h2">
+    <nav class="text-lift navbar text-white bg-primary p-0">
+        <div class="d-md-flex">
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
+            <div class="ml-md-3">
+                <a href="/posts" class="text-light">
+                    お気持ち表明一覧
+                </a>
+            </div>
+        </div>
         </div>
         <div>
             <div>
