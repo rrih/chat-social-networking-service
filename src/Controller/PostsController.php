@@ -19,14 +19,6 @@ class PostsController extends AppController
      */
     public function index()
     {
-        $this->loadModel('Users');
-        $id = $this->Authentication->getResult()->getData()->id;
-        if ($id != null) {
-            // user を取得するのは、 トップ画面のレイアウトでいいねとか表示させるため
-            $user = $this->Users->get($id);
-            $this->set(compact('user'));
-        }
-
         $posts = $this->Posts->find()
             ->select([
                 'id',

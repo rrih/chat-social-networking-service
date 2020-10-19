@@ -50,7 +50,7 @@ $cakeDescription = 'お気持ち.com';
                 </a>
                 </div>
                 <div>
-                <a href="/users/likes">
+                <a href="/users/like">
                     <i class="far fa-thumbs-up"></i>
                 </a>
                 </div>

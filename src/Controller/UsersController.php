@@ -61,9 +61,10 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
+    public function edit()
     {
-        $user = $this->Users->get($id);
+        $userId = $this->Authentication->getResult()->getData()->id;
+        $user = $this->Users->get($userId);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
@@ -75,7 +76,7 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
-    public function likes()
+    public function like()
     {
         $this->loadModel('Likes');
         $this->loadModel('Posts');
@@ -94,8 +95,7 @@ class UsersController extends AppController
         foreach ($likes as $like) {
             $results[] = $this->Posts->get($like->post_id); // Like モデルから、 Posts データを持ってくる
         }
-        debug($results);
-        $this->set('results');
+        $this->set(compact('results'));
     }
 
     // user の削除は論理削除で行う。 物理削除は admin 用の画面からのみ行えるようにする
