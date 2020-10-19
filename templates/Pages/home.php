@@ -51,7 +51,7 @@ $cakeDescription = 'お気持ち.com';
         <div class="d-md-flex">
             <div>お気持ち.com</div>
             <div class="ml-md-3">
-                <a href="/posts" class="text-light">
+                <a href="/posts" class="text-light text-decoration-none">
                     お気持ち表明一覧
                 </a>
             </div>
@@ -86,22 +86,22 @@ $cakeDescription = 'お気持ち.com';
                     <div class="h3">シェアする</div>
                     <div class="d-flex justify-content-center" style="font-size: 30px">
                         <div class="mx-4">
-                            <a href="http://twitter.com/intent/tweet?url=https://feel-prod.herokuapp.com&text=お気持ち表明の場"><i class="fab fa-twitter"></i></a>
+                            <a href="http://twitter.com/intent/tweet?url=https://feel-prod.herokuapp.com&text=お気持ち表明の場" class="text-decoration-none"><i class="fab fa-twitter"></i></a>
                         </div>
                         <div class="mx-4">
-                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場"><i class="fab fa-facebook"></i></a>
+                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場" class="text-decoration-none"><i class="fab fa-facebook"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="py-5">
                     <div class="h3">ソース</div>
-                    <a href="https://github.com/rrih/feel" style="font-size: 30px"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/rrih/feel" style="font-size: 30px" class="text-decoration-none"><i class="fab fa-github"></i></a>
                 </div>
                 <div class="py-5">
                     <div class="h3">開発者</div>
                     <div class="d-md-flex justify-content-center">
-                        <a href="https://twitter.com/rrih_dev" class="mx-4">Twitter</a>
-                        <a href="https://github.com/rrih" class="mx-4">GitHub</a>
+                        <a href="https://twitter.com/rrih_dev" class="mx-4 text-decoration-none">Twitter</a>
+                        <a href="https://github.com/rrih" class="mx-4 text-decoration-none">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,7 @@ $cakeDescription = 'お気持ち.com';
     <footer class="footer navbar text-center bg-primary text-light">
         <div>お気持ち.com</div>
         <div>
-            <a href="https://github.com/rrih/feel" class="text-light">GitHub</a>
-            <a href="/privacy-policy" class="text-light">プライバシーポリシー</a>
+            <a href="#" class="text-light text-decoration-none">プライバシーポリシー</a>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
