@@ -21,7 +21,12 @@ class PostsController extends AppController
     {
         $this->loadModel('Users');
         $id = $this->Authentication->getResult()->getData()->id;
-        $user = $this->Users->get($id);
+        if ($id != null) {
+            // user を取得するのは、 トップ画面のレイアウトでいいねとか表示させるため
+            $user = $this->Users->get($id);
+            $this->set(compact('user'));
+        }
+
         $posts = $this->Posts->find()
             ->select([
                 'id',
@@ -43,7 +48,7 @@ class PostsController extends AppController
                 'post_created' => 'desc',
             ]);
         $this->paginate($posts);
-        $this->set(compact('user'));
+
         $this->set(compact('posts'));
     }
 
@@ -83,6 +88,7 @@ class PostsController extends AppController
     {
         $this->autoRender = false;
         $this->loadModel('Users');
+        $this->loadModel('Likes');
         $isLogin = $this->Authentication->getResult()->isValid();
         if (!$isLogin) {
             // ログインしていなかったらログインページへ飛ばす
@@ -91,7 +97,11 @@ class PostsController extends AppController
         $post = $this->Posts->get($id);
         $postEntity = $this->Posts->patchEntity($post, $this->request->getData());
         $postEntity->like_count = $postEntity->like_count + 1;
-        if (!$this->Posts->save($post)) {
+        $userId = $this->Authentication->getResult()->getData()->id;
+        $like = $this->Likes->newEmptyEntity();
+        $like->user_id = $userId;
+        $like->post_id = $post->id;
+        if (!$this->Posts->save($post) || !$this->Likes->save($like)) {
             $this->Flash->error(__('like できませんでした'));
         }
         return $this->redirect(['action' => 'index']);

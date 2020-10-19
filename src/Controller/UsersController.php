@@ -75,9 +75,27 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 
-    public function likes($id = null)
+    public function likes()
     {
+        $this->loadModel('Likes');
+        $this->loadModel('Posts');
+        $userId = $this->Authentication->getResult()->getData()->id;
         // TODO 任意のユーザが like したものを全て引っ張ってくる
+        $likes = $this->Likes->find()
+            ->select([
+                'post_id',
+            ])
+            ->where([
+                'user_id' => $userId // 特定のユーザが like したもののみ、Like モデルを持ってくる
+            ])
+            ->toList();
+        $likes = array_unique($likes);
+        $results = [];
+        foreach ($likes as $like) {
+            $results[] = $this->Posts->get($like->post_id); // Like モデルから、 Posts データを持ってくる
+        }
+        debug($results);
+        $this->set('results');
     }
 
     // user の削除は論理削除で行う。 物理削除は admin 用の画面からのみ行えるようにする

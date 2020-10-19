@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center container">
     <?= $this->Flash->render() ?>
     <div>ログイン画面</div>
     <?= $this->Form->create() ?>

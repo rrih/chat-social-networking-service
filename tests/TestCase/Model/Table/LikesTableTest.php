@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PostsTable;
+use App\Model\Table\LikesTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PostsTable Test Case
+ * App\Model\Table\LikesTable Test Case
  */
-class PostsTableTest extends TestCase
+class LikesTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PostsTable
+     * @var \App\Model\Table\LikesTable
      */
-    protected $Posts;
+    protected $Likes;
 
     /**
      * Fixtures
@@ -24,8 +24,9 @@ class PostsTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Posts',
+        'app.Likes',
         'app.Users',
+        'app.Posts',
     ];
 
     /**
@@ -36,8 +37,8 @@ class PostsTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Posts') ? [] : ['className' => PostsTable::class];
-        $this->Posts = $this->getTableLocator()->get('Posts', $config);
+        $config = $this->getTableLocator()->exists('Likes') ? [] : ['className' => LikesTable::class];
+        $this->Likes = $this->getTableLocator()->get('Likes', $config);
     }
 
     /**
@@ -47,7 +48,7 @@ class PostsTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Posts);
+        unset($this->Likes);
 
         parent::tearDown();
     }

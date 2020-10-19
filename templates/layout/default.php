@@ -45,7 +45,7 @@ $cakeDescription = 'お気持ち.com';
                 </a>
                 </div>
                 <div>
-                <a href="/users/edit/<?= $user->id ?>">
+                <a href="/users/edit/">
                     <i class="fas fa-user"></i>
                 </a>
                 </div>

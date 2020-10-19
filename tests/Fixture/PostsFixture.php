@@ -47,8 +47,8 @@ class PostsFixture extends TestFixture
                 'text' => 'Lorem ipsum dolor sit amet',
                 'like_count' => 1,
                 'dislike_count' => 1,
-                'created' => '2020-10-19 03:38:03',
-                'modified' => '2020-10-19 03:38:03',
+                'created' => '2020-10-19 08:04:40',
+                'modified' => '2020-10-19 08:04:40',
             ],
         ];
         parent::init();

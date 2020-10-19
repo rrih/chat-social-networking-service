@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Posts Model
  *
+ * @property \App\Model\Table\UsersTable&\Cake\ORM\Association\BelongsTo $Users
+ *
  * @method \App\Model\Entity\Post newEmptyEntity()
  * @method \App\Model\Entity\Post newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Post[] newEntities(array $data, array $options = [])
@@ -48,6 +50,9 @@ class PostsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
+        ]);
+        $this->hasMany('Likes', [
+            'foreignKey' => 'post_id',
         ]);
     }
 

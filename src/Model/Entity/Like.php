@@ -6,19 +6,16 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Post Entity
+ * Like Entity
  *
- * @property int $id
  * @property int $user_id
- * @property string|null $text
- * @property int|null $like_count
- * @property int|null $dislike_count
- * @property \Cake\I18n\FrozenTime|null $created
- * @property \Cake\I18n\FrozenTime|null $modified
+ * @property int $post_id
+ * @property int $id
  *
  * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Post $post
  */
-class Post extends Entity
+class Like extends Entity
 {
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -31,11 +28,8 @@ class Post extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'text' => true,
-        'like_count' => true,
-        'dislike_count' => true,
-        'created' => true,
-        'modified' => true,
+        'post_id' => true,
         'user' => true,
+        'post' => true,
     ];
 }
