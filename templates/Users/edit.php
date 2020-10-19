@@ -1,7 +1,7 @@
 <div class="container">
     <div class="users form content">
         <?= $this->Form->create($user) ?>
-            <div>ユーザー編集</div>
+            <div class="text-center">ユーザー編集</div>
             <?php
                 echo $this->Form->control('name', ['label' => 'ユーザー名', 'class' => 'form-control']);
                 echo $this->Form->control('email', ['label' => 'メールアドレス', 'class' => 'form-control']);

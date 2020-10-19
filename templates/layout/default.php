@@ -52,7 +52,7 @@ $cakeDescription = 'お気持ち.com';
                 </div>
                 <div>
                     <a href="/users/edit/">
-                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user-edit"></i>
                     </a>
                 </div>
                 <div>
@@ -63,6 +63,18 @@ $cakeDescription = 'お気持ち.com';
                 <div>
                     <a href="#">
                         <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="fas fa-user-friends"></i>
+                        <div style="font-size: 7px">フォロー</div>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="fas fa-users"></i>
+                        <div style="font-size: 7px">フォロワー</div>
                     </a>
                 </div>
             </div>
