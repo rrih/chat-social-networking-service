@@ -8,7 +8,7 @@
     <div class="form w-100">
         <?= $this->Form->create($post) ?>
             <div>お気持ち表明画面</div>
-            <?= $user->name != null ? $user->name : 'null' ?> <a href="/users/edit/<?= $user->id ?>">編集する</a>
+            <?= $user->name != null ? $user->name : 'null' ?> <a href="/users/edit/<?= $user->id ?>" class="text-decoration-none">編集する</a>
             <?php
                 echo $this->Form->control('text', ['label' => 'お気持ち内容', 'type' => 'textarea', 'class' => 'form-control', 'maxlength' => 1000]);
             ?>

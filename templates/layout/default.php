@@ -25,7 +25,7 @@ $cakeDescription = 'お気持ち.com';
         <div class="d-md-flex">
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
             <div class="ml-md-3">
-                <a href="/posts" class="text-light">
+                <a href="/posts" class="text-light text-decoration-none">
                     お気持ち表明一覧
                 </a>
             </div>
@@ -46,33 +46,33 @@ $cakeDescription = 'お気持ち.com';
             <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
             <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
                 <div>
-                    <a href="/posts">
+                    <a href="/posts" class="text-decoration-none">
                         <i class="fas fa-home"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="/users/edit/">
+                    <a href="/users/edit/" class="text-decoration-none">
                         <i class="fas fa-user-edit"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="/users/like">
+                    <a href="/users/like" class="text-decoration-none">
                         <i class="far fa-thumbs-up"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="#" class="text-decoration-none">
                         <i class="far fa-envelope"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="#" class="text-decoration-none">
                         <i class="fas fa-user-friends"></i>
                         <div style="font-size: 7px">フォロー</div>
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="#" class="text-decoration-none">
                         <i class="fas fa-users"></i>
                         <div style="font-size: 7px">フォロワー</div>
                     </a>
