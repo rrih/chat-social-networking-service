@@ -46,7 +46,6 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('登録できたよ〜！'));
                 return $this->redirect(['action' => 'edit']);
             }
             $this->Flash->error(__('すまん、もう一度頼むわ'));
@@ -68,8 +67,7 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('編集完了'));
-                return $this->redirect(['action' => 'edit', $id]);
+                return $this->redirect(['action' => 'edit']);
             }
             $this->Flash->error(__('編集できませんでした'));
         }
