@@ -1,10 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\User $user
- */
-?>
-<!-- TODO ユーザー編集画面 -->
 <div class="container">
     <div class="users form content">
         <?= $this->Form->create($user) ?>

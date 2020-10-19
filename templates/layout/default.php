@@ -20,7 +20,7 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body class="bg-light">
     <nav class="text-lift navbar text-white flex-column flex-md-row bg-primary">
         <div class="h2">
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>

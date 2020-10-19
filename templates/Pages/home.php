@@ -46,7 +46,7 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body>
+<body class="bg-light">
     <header class="text-lift navbar text-white flex-column flex-md-row bg-primary">
         <div class="h2">
             お気持ち.com
