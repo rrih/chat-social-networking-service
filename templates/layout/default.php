@@ -46,19 +46,24 @@ $cakeDescription = 'お気持ち.com';
             <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
             <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
                 <div>
-                <a href="/posts">
-                    <i class="fas fa-home"></i>
-                </a>
+                    <a href="/posts">
+                        <i class="fas fa-home"></i>
+                    </a>
                 </div>
                 <div>
-                <a href="/users/edit/">
-                    <i class="fas fa-user"></i>
-                </a>
+                    <a href="/users/edit/">
+                        <i class="fas fa-user"></i>
+                    </a>
                 </div>
                 <div>
-                <a href="/users/like">
-                    <i class="far fa-thumbs-up"></i>
-                </a>
+                    <a href="/users/like">
+                        <i class="far fa-thumbs-up"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="#">
+                        <i class="far fa-envelope"></i>
+                    </a>
                 </div>
             </div>
 
