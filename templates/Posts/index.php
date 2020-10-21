@@ -7,6 +7,13 @@
 <div class="container p-0">
     <div class="container text-center p-0">
         <div class="mx-auto">
+            <!-- 検索用フォーム -->
+            <?= $this->Form->create(null, ['url' => '/posts', 'type' => 'get']) ?>
+                <?= $this->Form->control('content', ['label' => null, 'type' => 'text', 'div' => true, 'form-control', 'value' => $params['content'], 'empty' => true, 'required' => false, 'name' => 'content']); ?>
+                <?= $this->Form->button('検索') ?>
+            <?= $this->Form->end() ?>
+
+            <!-- posts -->
             <?php foreach ($posts as $post): ?>
                 <!-- post card -->
                 <div class="card my-3 shadow-sm">
