@@ -15,6 +15,9 @@
  */
 use Cake\Cache\Cache;
 use Cake\Core\Configure;
+use App\Controller;
+use App\View\AppView;
+use Cake\View\Helper\PostsHelper;
 use Cake\Http\Exception\NotFoundException;
 
 $this->disableAutoLayout();
@@ -47,7 +50,7 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <header class="text-lift navbar text-white bg-primary p-0">
+    <header class="text-lift navbar text-white bg-primary">
         <div class="d-md-flex">
             <div>お気持ち.com</div>
             <div class="ml-md-3">
@@ -66,36 +69,54 @@ $cakeDescription = 'お気持ち.com';
         </div>
     </header>
     <main class="main">
-        <div class="container">
+        <div class="container p-0">
             <div class="text-center">
                 <div class="h3 pt-5">
-                    お気持ち.com
+                    お気持ち.com (β版)
                 </div>
                 <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings')); ?>
                 <div class="py-5">
-                    <h3>ここは何？</h3>
-                    <p class="py-2">
+                    <h3>ここは何？🤔</h3>
+                    <p class="py-2" style="font-size: 15px">
                         お気持ちを表明する場所です。<br>
-                        他人のお気持ち表明に対し、リアクションを送ることができます。<br>
-                        Twitterより治安の良いインターネット空間を目指します。
+                        Twitterより治安の良いインターネット空間を目指します。<br>
+                        開発者のPHPの練習場でもあります
                     </p>
                 </div>
-                <div class="border-top border-bottom">
-                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5']) ?>
+                <div class="border-top border-bottom py-5 h4">
+                    投稿されたお気持ちの数 👉 <?php
+                        echo $this->Posts->getPostsCount();
+                    ?>
                 </div>
-                <div class="py-5">
-                    <div class="h3">シェアする</div>
+                <div class="border-bottom">
+                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5 rounded-pill']) ?>
+                </div>
+                <div class="py-5 border-bottom">
+                    <div class="h3">シェアする <i class="fas fa-retweet"></i></div>
                     <div class="d-flex justify-content-center" style="font-size: 30px">
                         <div class="mx-4">
-                            <a href="http://twitter.com/intent/tweet?url=https://feel-prod.herokuapp.com&text=お気持ち表明の場" class="text-decoration-none"><i class="fab fa-twitter"></i></a>
+                            <a href="http://twitter.com/intent/tweet?url=https://feel-prod.herokuapp.com&text=お気持ち表明の場"
+                            class="text-decoration-none">
+                                <i class="fab fa-twitter"></i>
+                            </a>
                         </div>
                         <div class="mx-4">
-                            <a href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場" class="text-decoration-none"><i class="fab fa-facebook"></i></a>
+                            <a
+                            href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場"
+                            class="text-decoration-none">
+                                <i class="fab fa-facebook"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
+                <div class="border-bottom py-5">
+                    <div class="h3">
+                        更新情報 <i class="fas fa-rss"></i>
+                    </div>
+                    2020/10/22 SSL化
+                </div>
                 <div class="py-5">
-                    <div class="h3">ソース</div>
+                    <div class="h3">ソース <i class="fas fa-laptop-code"></i></div>
                     <a href="https://github.com/rrih/feel" style="font-size: 30px" class="text-decoration-none"><i class="fab fa-github"></i></a>
                 </div>
                 <div class="py-5">

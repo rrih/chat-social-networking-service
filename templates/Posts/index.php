@@ -4,15 +4,24 @@
  * @var \App\Model\Entity\Post[]|\Cake\Collection\CollectionInterface $posts
  */
 ?>
-<div class="container">
-    <div class="container text-center">
+<div class="container p-0">
+    <div class="container text-center p-0">
         <div class="mx-auto">
             <?php foreach ($posts as $post): ?>
                 <!-- post card -->
                 <div class="card my-3 shadow-sm">
                     <div class="card-header h5 border-bottom"><?= $post->user_name ? $post->user_name : 'null' ?></div>
-                    <div class="card-body"><?= h($post->text) ?></div>
-                    <div class="card-text">
+                    <div class="card-body">
+                        <?= h($post->text) ?>
+                    </div>
+                    <div class="card-text" style="font-size: 30px">
+                        <!-- TODO モーダル開いて、コメントを投稿できるようにする -->
+                        <a href="#" class="btn btn-outline-primary rounded-pill">
+                            <i class="far fa-comment"></i>コメント
+                        </a>
+                        <a href="#" class="btn btn-outline-dark rounded-pill">
+                        <i class="fas fa-retweet"></i>拡散
+                        </a>
                         <?= $this->Form->postLink(
                             __('👍 ' . $post->like_count),
                             [
@@ -20,7 +29,7 @@
                                 $post->id
                             ],
                             [
-                                'class' => 'btn btn-outline-success'
+                                'class' => 'btn btn-outline-success rounded-pill'
                             ]
                         )
                         ?>
@@ -31,7 +40,7 @@
                                 $post->id
                             ],
                             [
-                                'class' => 'btn btn-outline-danger'
+                                'class' => 'btn btn-outline-danger rounded-pill'
                             ]
                         )
                         ?>

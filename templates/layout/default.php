@@ -21,7 +21,7 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <nav class="text-lift navbar text-white bg-primary p-0">
+    <nav class="text-lift navbar text-white bg-primary p-0 fixed-top">
         <div class="d-md-flex">
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
             <div class="ml-md-3">
@@ -41,7 +41,7 @@ $cakeDescription = 'お気持ち.com';
         </div>
     </nav>
     <main class="main">
-        <div class="container d-md-flex">
+        <div class="container d-md-flex px-0 py-5">
 
             <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
             <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
@@ -81,6 +81,30 @@ $cakeDescription = 'お気持ち.com';
 
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
+
+            <!-- sm 以下のサイズでのみ表示。スマホで使う用。 -->
+            <div class="d-flex d-md-none text-center fixed-bottom justify-content-between bg-primary" style="font-size: 30px">
+                <div>
+                    <a href="/posts" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="/users/edit/" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="/users/like" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                        <i class="far fa-thumbs-up"></i>
+                    </a>
+                </div>
+                <div>
+                    <a href="#" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>

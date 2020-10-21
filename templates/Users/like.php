@@ -1,10 +1,10 @@
 <div class="d-block container">
-    いいねしたお気持ち表明一覧
+    <div class="text-center h5">いいね</div>
     <?php
         $posts = $results;
         foreach ($posts as $post) {
     ?>
-        <div class="card my-3 shadow-sm">
+        <div class="card mb-3 shadow-sm">
             <div class="card-header h5 border-bottom"><?= $post->id ? $this->Users->getOneUserName($post->user_id) : 'null' ?></div>
             <div class="card-body"><?= h($post->text) ?></div>
             <?php if ($post->created) { ?>
