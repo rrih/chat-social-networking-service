@@ -19,6 +19,14 @@ class PostsController extends AppController
      */
     public function index()
     {
+        $params = $this->request->getQuery() + [
+            'content' => '',
+        ];
+        $this->set('params', $params);
+        $conditions = [];
+        if ($params['content']) {
+            $conditions['text LIKE'] = '%' . addcslashes($params['content'], '%_') . '%';
+        }
         $posts = $this->Posts->find()
             ->select([
                 'id',
@@ -36,11 +44,13 @@ class PostsController extends AppController
                     'conditions' => 'Users.id = Posts.user_id',
                 ]
             ])
+            ->where([
+                $conditions,
+            ])
             ->order([
                 'post_created' => 'desc',
             ]);
         $this->paginate($posts);
-
         $this->set(compact('posts'));
     }
 
