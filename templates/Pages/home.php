@@ -71,7 +71,6 @@ $cakeDescription = 'お気持ち.com';
                 <div class="h3 pt-5">
                     お気持ち.com
                 </div>
-                <!-- <img src="/img/feel.png" alt="expression feelings"> -->
                 <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings')); ?>
                 <div class="py-5">
                     <h3>ここは何？</h3>
