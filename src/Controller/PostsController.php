@@ -20,12 +20,12 @@ class PostsController extends AppController
     public function index()
     {
         $params = $this->request->getQuery() + [
-            'content' => '',
+            'q' => '',
         ];
         $this->set('params', $params);
         $conditions = [];
-        if ($params['content']) {
-            $conditions['text LIKE'] = '%' . addcslashes($params['content'], '%_') . '%';
+        if ($params['q']) {
+            $conditions['text LIKE'] = '%' . addcslashes($params['q'], '%_') . '%';
         }
         $posts = $this->Posts->find()
             ->select([

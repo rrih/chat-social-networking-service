@@ -7,12 +7,11 @@
 <div class="container p-0">
     <div class="container text-center p-0">
         <div class="mx-auto">
-            <!-- 検索用フォーム -->
             <?= $this->Form->create(null, ['url' => '/posts', 'type' => 'get', 'div' => false, 'label' => false, 'class' => 'mt-3']) ?>
                 <table class="w-100">
                     <tr>
-                        <td style="width: calc(100%-30px)" class="w-100">
-                            <?= $this->Form->control('content', ['label' => false, 'type' => 'text', 'div' => false, 'class' => 'form-control', 'value' => $params['content'], 'empty' => true, 'required' => false, 'name' => 'content', 'placeholder' => 'キーワード検索']); ?>
+                        <td class="w-100">
+                            <?= $this->Form->control('content', ['label' => false, 'type' => 'text', 'div' => false, 'class' => 'form-control', 'value' => $params['q'], 'empty' => true, 'required' => false, 'name' => 'q', 'placeholder' => 'キーワード検索']); ?>
                         </td>
                         <td class="d-block">
                             <?= $this->Form->button('検索', ['div' => true, 'class' => 'btn btn-primary', 'style' => 'width: 75px']) ?>
@@ -21,7 +20,10 @@
                 </table>
             <?= $this->Form->end() ?>
 
-            <!-- posts -->
+            <?php if($posts->toList() == []) { ?>
+                <div class="h5 my-4">「<?php echo ($params['q']); ?>」の検索結果はありません。</div>
+            <?php } ?>
+
             <?php foreach ($posts as $post): ?>
                 <!-- post card -->
                 <div class="card my-3 shadow-sm">
