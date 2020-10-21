@@ -25,7 +25,7 @@ $cakeDescription = 'お気持ち.com';
         <div class="d-md-flex">
             <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
             <div class="ml-md-3">
-                <a href="/posts" class="text-light text-decoration-none">
+                <a href="/posts" class="text-white text-decoration-none">
                     お気持ち表明一覧
                 </a>
             </div>

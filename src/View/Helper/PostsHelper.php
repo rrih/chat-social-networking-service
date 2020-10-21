@@ -7,10 +7,8 @@ use Cake\Datasource\ModelAwareTrait;
 
 class PostsHelper extends Helper
 {
-    // public function initialize()
     use ModelAwareTrait;
 
-    // 名前を返す
     public function getPostsCount()
     {
         $this->loadModel('Posts');

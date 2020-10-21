@@ -50,7 +50,7 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <header class="text-lift navbar text-white bg-primary">
+    <header class="text-lift navbar text-white bg-primary p-0">
         <div class="d-md-flex">
             <div>お気持ち.com</div>
             <div class="ml-md-3">
@@ -84,12 +84,12 @@ $cakeDescription = 'お気持ち.com';
                     </p>
                 </div>
                 <div class="border-top border-bottom py-5 h4">
-                    投稿されたお気持ちの数 👉 <?php
+                    お気持ちの数 👉 <?php
                         echo $this->Posts->getPostsCount();
                     ?>
                 </div>
                 <div class="border-bottom">
-                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary m-5 rounded-pill']) ?>
+                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary mx-3 my-5 py-3 px-5 rounded-pill']) ?>
                 </div>
                 <div class="py-5 border-bottom">
                     <div class="h3">シェアする <i class="fas fa-retweet"></i></div>
@@ -111,7 +111,7 @@ $cakeDescription = 'お気持ち.com';
                 </div>
                 <div class="border-bottom py-5">
                     <div class="h3">
-                        更新情報 <i class="fas fa-rss"></i>
+                        更新情報 🎉
                     </div>
                     2020/10/22 SSL化
                 </div>
