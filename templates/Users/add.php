@@ -6,7 +6,7 @@
             <?= $this->Form->control('email', ['label' => 'メールアドレス', 'required' => true, 'class' => 'form-control']) ?>
             <?= $this->Form->control('password', ['label' => 'パスワード', 'required' => true, 'class' => 'form-control']) ?>
             <div class="text-center my-3">
-                <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary']); ?>
+                <?= $this->Form->button(__('登録する'), ['class' => 'btn btn-outline-primary rounded-pill px-5 py-3']); ?>
             </div>
         <?= $this->Form->end() ?>
     </div>

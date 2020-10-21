@@ -7,7 +7,7 @@
             <?= $this->Form->control('password', ['label' => 'パスワード', 'required' => true, 'class' => 'form-control']) ?>
         </div>
         <div class="text-center my-3">
-            <?= $this->Form->submit(__('ログイン'), ['class' => 'btn btn-outline-primary']); ?>
+            <?= $this->Form->submit(__('ログイン'), ['class' => 'btn btn-outline-primary rounded-pill px-5 py-3']); ?>
         </div>
     <?= $this->Form->end() ?>
 

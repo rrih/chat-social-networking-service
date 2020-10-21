@@ -22,22 +22,13 @@ $cakeDescription = 'お気持ち.com';
 </head>
 <body class="bg-light">
     <nav class="text-lift navbar text-white bg-primary p-0 fixed-top">
-        <div class="d-md-flex">
-            <?= $this->Html->link(__('お気持ち.com'), ['controller' => 'pages', 'action' => 'display'], ['class' => 'text-white text-decoration-none']) ?>
-            <div class="ml-md-3">
-                <a href="/posts" class="text-white text-decoration-none">
-                    お気持ち表明一覧
-                </a>
-            </div>
-        </div>
+        <div>
+            <a href="/posts" class="text-white text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
+                <i class="fas fa-home"></i>
+            </a>
         </div>
         <div>
-            <div>
-                <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) : $this->Html->link(__('ログアウトする'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none']) ?>
-            </div>
-            <div>
-                <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
-            </div>
+            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none px-4']) ?>
         </div>
     </nav>
     <main class="main">
@@ -46,8 +37,8 @@ $cakeDescription = 'お気持ち.com';
             <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
             <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
                 <div>
-                    <a href="/posts" class="text-decoration-none">
-                        <i class="fas fa-home"></i>
+                    <a href="/posts/add" class="text-decoration-none">
+                        <i class="fas fa-pen"></i>
                     </a>
                 </div>
                 <div>
@@ -100,8 +91,8 @@ $cakeDescription = 'お気持ち.com';
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
-                        <i class="far fa-envelope"></i>
+                    <a href="/posts/add" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                        <i class="fas fa-pen"></i>
                     </a>
                 </div>
             </div>

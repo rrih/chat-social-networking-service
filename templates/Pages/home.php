@@ -50,24 +50,16 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('script') ?>
 </head>
 <body class="bg-light">
-    <header class="text-lift navbar text-white bg-primary p-0">
-        <div class="d-md-flex">
-            <div>お気持ち.com</div>
-            <div class="ml-md-3">
-                <a href="/posts" class="text-light text-decoration-none">
-                    お気持ち表明一覧
-                </a>
-            </div>
+    <nav class="text-lift navbar text-white bg-primary p-0 fixed-top">
+        <div>
+            <a href="/posts" class="text-white text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
+                <i class="fas fa-home"></i>
+            </a>
         </div>
         <div>
-            <div>
-                <?= !$isLogin ? $this->Html->link(__('ログインする'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none']) : $this->Html->link(__('ログアウトする'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none']) ?>
-            </div>
-            <div>
-                <?= $this->Html->link(__('お気持ち表明する'), ['controller' => 'posts', 'action' => 'add'], ['class' => 'text-white text-decoration-none']) ?> <i class="fas fa-pen"></i>
-            </div>
+            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none px-4']) ?>
         </div>
-    </header>
+    </nav>
     <main class="main">
         <div class="container p-0">
             <div class="text-center">
@@ -89,7 +81,13 @@ $cakeDescription = 'お気持ち.com';
                     ?>
                 </div>
                 <div class="border-bottom">
-                    <?= $this->Html->link(__('お気持ち表明を見に行く'), ['controller' => 'posts', 'action' => 'index'], ['class' => 'btn btn-outline-primary mx-3 my-5 py-3 px-5 rounded-pill']) ?>
+                    <?=
+                        $this->Html->link(
+                            __('お気持ち表明を見に行く'),
+                            ['controller' => 'posts', 'action' => 'index'],
+                            ['class' => 'btn btn-outline-primary mx-3 my-5 py-3 px-5 rounded-pill']
+                        )
+                    ?>
                 </div>
                 <div class="py-5 border-bottom">
                     <div class="h3">シェアする <i class="fas fa-retweet"></i></div>
@@ -102,8 +100,9 @@ $cakeDescription = 'お気持ち.com';
                         </div>
                         <div class="mx-4">
                             <a
-                            href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場"
-                            class="text-decoration-none">
+                                href="http://www.facebook.com/sharer/sharer.php?u=https://feel-prod.herokuapp.com&t=お気持ち表明の場"
+                                class="text-decoration-none"
+                            >
                                 <i class="fab fa-facebook"></i>
                             </a>
                         </div>
@@ -113,11 +112,17 @@ $cakeDescription = 'お気持ち.com';
                     <div class="h3">
                         更新情報 🎉
                     </div>
-                    2020/10/22 SSL化
+                    2020/10/22 検索機能追加
                 </div>
                 <div class="py-5">
                     <div class="h3">ソース <i class="fas fa-laptop-code"></i></div>
-                    <a href="https://github.com/rrih/feel" style="font-size: 30px" class="text-decoration-none"><i class="fab fa-github"></i></a>
+                    <a
+                        href="https://github.com/rrih/feel"
+                        style="font-size: 30px"
+                        class="text-decoration-none"
+                    >
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
                 <div class="py-5">
                     <div class="h3">開発者</div>

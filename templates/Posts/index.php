@@ -37,11 +37,11 @@
                     <?php if ($post->post_created) { ?>
                         <div class="card-footer text-muted text-right" style="font-size: 30px">
                             <!-- TODO モーダル開いて、コメントを投稿できるようにする -->
-                            <a href="#" class="btn btn-outline-primary rounded-pill">
-                                <i class="far fa-comment"></i>コメント
+                            <a href="#" class="btn btn-outline-primary rounded-pill px-3">
+                                <i class="far fa-comment"></i>
                             </a>
-                            <a href="#" class="btn btn-outline-dark rounded-pill">
-                            <i class="fas fa-retweet"></i>拡散
+                            <a href="#" class="btn btn-outline-dark rounded-pill px-3">
+                            <i class="fas fa-retweet"></i>
                             </a>
                             <?= $this->Form->postLink(
                                 __('👍 ' . $post->like_count),
