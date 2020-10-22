@@ -11,15 +11,36 @@ namespace App\Controller;
  */
 class UsersController extends AppController
 {
-    /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|null|void Renders view
-     */
-    public function index()
+    public function profile($id = null)
     {
-        $users = $this->Users;
-        $this->set('users', $this->paginate($users));
+        // ログインしていなかったら、、、
+        // if ($this->Authentication->getResult()->isValid()) {
+        //     return ;
+        // }
+        $isId = $id ? true : false;
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        $currentUser = $this->Users->get($currentId);
+        $this->set(compact('currentUser', 'isId'));
+        // id がなければ return
+        if ($id === null) {
+            return;
+        }
+        $user = $this->Users->get($id);
+        $this->Users->get($id);
+        $this->set(compact('user'));
+        // if ($userId) {
+        //     $user = $this->Users->get($userId);
+        //     $this->set(compact('user'));
+        // }
+        // // 対象ユーザ
+        // // $currentUserId = $id != null ? $id : null;
+        // if ($id === null) {
+        //     return ;
+        //     // $currentUser = $this->Users->get($currentUserId);
+        //     // $this->set(compact('currentUser'));
+        // }
+        // $currentUser = $this->Users->get($currentUserId);
+        // $this->set(compact('currentUser'));
     }
 
     /**

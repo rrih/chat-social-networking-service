@@ -1,9 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post[]|\Cake\Collection\CollectionInterface $posts
- */
-?>
 <div class="container p-0">
     <div class="container text-center p-0">
         <div class="mx-auto">
