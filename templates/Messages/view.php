@@ -1,6 +1,7 @@
 <div class="text-center container">
-    private message
+    メッセージ
     <div>
+        <?= $otherUser->name ?>
         <?php foreach ($messages as $msg): ?>
             <div class="border">
                 <div>

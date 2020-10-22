@@ -32,7 +32,7 @@ class MessagesController extends AppController
      * @param [type] $userId
      * @return void
      */
-    public function view(int $userId)
+    public function view($userId)
     {
         // 現在のユーザのroom を作成する
         $this->loadModel('Users');
@@ -40,6 +40,9 @@ class MessagesController extends AppController
         $this->loadModel('Rooms');
         $this->loadModel('Messages');
         $id = $this->Authentication->getResult()->getData()->id;
+        $currentUser = $this->Users->get($id);
+        $otherUser = $this->Users->get($userId);
+        $this->set(compact('currentUser', 'otherUser'));
         $room = $this->Rooms->find()->where(['user_id' => $id])->first();
         // roomなければ作る
         if (empty($room)) {
