@@ -13,12 +13,11 @@ class UsersController extends AppController
 {
     public function profile($id = null)
     {
-        // ログインしていなかったら、、、
-        // if ($this->Authentication->getResult()->isValid()) {
-        //     return ;
-        // }
         $isId = $id ? true : false;
         $currentId = $this->Authentication->getResult()->getData()->id;
+        if ((int)$id === $currentId) {
+            return $this->redirect('/users/profile');
+        }
         $currentUser = $this->Users->get($currentId);
         $this->set(compact('currentUser', 'isId'));
         // id がなければ return
@@ -28,19 +27,6 @@ class UsersController extends AppController
         $user = $this->Users->get($id);
         $this->Users->get($id);
         $this->set(compact('user'));
-        // if ($userId) {
-        //     $user = $this->Users->get($userId);
-        //     $this->set(compact('user'));
-        // }
-        // // 対象ユーザ
-        // // $currentUserId = $id != null ? $id : null;
-        // if ($id === null) {
-        //     return ;
-        //     // $currentUser = $this->Users->get($currentUserId);
-        //     // $this->set(compact('currentUser'));
-        // }
-        // $currentUser = $this->Users->get($currentUserId);
-        // $this->set(compact('currentUser'));
     }
 
     /**
@@ -61,7 +47,7 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function signup()
     {
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -143,7 +129,7 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // ログインアクションを認証を必要としないように設定することで、
         // 無限リダイレクトループの問題を防ぐことができます
-        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'signup']);
     }
 
     public function login()
