@@ -5,7 +5,7 @@
             <div><?= $user->name ?></div>
             <div><?= $user->created->format('yy-m-d h:m:s') ?>からお気持ち.comを利用しています</div>
             <div>
-                <a href="#">private messsage を送る</a>
+                <a href="/messages/view/<?= $user->id ?>">private messsage を送る</a>
             </div>
         <?php } else { ?>
             <!-- 自分のプロフィール画面 -->

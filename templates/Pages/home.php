@@ -62,7 +62,7 @@ $cakeDescription = 'お気持ち.com';
     </nav>
     <main class="main">
         <div class="container p-0">
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <div class="h3 pt-5">
                     お気持ち.com (β版)
                 </div>
