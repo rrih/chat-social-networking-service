@@ -39,7 +39,12 @@ class MessagesController extends AppController
         $this->loadModel('Entries');
         $this->loadModel('Rooms');
         $this->loadModel('Messages');
+
         $id = $this->Authentication->getResult()->getData()->id;
+        // 自分にDMは遅れないようにする。
+        if ((int)$userId === (int)$id) {
+            return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
+        }
         $currentUser = $this->Users->get($id);
         $otherUser = $this->Users->get($userId);
         $this->set(compact('currentUser', 'otherUser'));
@@ -50,6 +55,7 @@ class MessagesController extends AppController
             $room->user_id = $id;
             $this->Rooms->save($room);
         }
+        // debug($this->Entries->find()->where(['user_id' => $userId])->first());
         $userRoom = $this->Entries->find()->where(['user_id' => $userId])->first();
 
         if (!empty($userRoom)) {
@@ -66,12 +72,15 @@ class MessagesController extends AppController
             $userRoom2->room_id = $room->id;
             $this->Entries->save($userRoom2);
         }
-        $message = $this->Messages->newEmptyEntity();
-        $message->user_id = $id;
-        $message->room_id = $room->id;
-        $message->message = 'ふが'; // とりあえずhogeでいれる。あとでrequesデータ入れる
-        $this->Messages->save($message);
-        $messages = $this->Messages->find()->where(['user_id' => $userId])->toList();
+        // メッセージを追加して保存するまでの処理
+        if ($this->request->is('post')) {
+            $message = $this->Messages->newEmptyEntity();
+            $message->user_id = $id;
+            $message->room_id = $room->id;
+            $message->message = $this->request->getData('message'); // とりあえずhogeでいれる。あとでrequesデータ入れる
+            $this->Messages->save($message);
+        }
+        $messages = $this->Messages->find()->where(['user_id' => $id])->toList();
         $this->set(compact('messages'));
     }
 }
