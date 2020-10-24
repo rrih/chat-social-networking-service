@@ -48,10 +48,13 @@ class MessagesTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        // 誰が投稿者したのか、という情報に紐づく
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
+
+        // ルームに紐づく
         $this->belongsTo('Rooms', [
             'foreignKey' => 'room_id',
             'joinType' => 'INNER',

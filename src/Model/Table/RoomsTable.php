@@ -54,12 +54,9 @@ class RoomsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
-        $this->belongsTo('OtherUsers', [
+        $this->belongsTo('Users', [
             'foreignKey' => 'other_user_id',
             'joinType' => 'INNER',
-        ]);
-        $this->hasMany('Entries', [
-            'foreignKey' => 'room_id',
         ]);
         $this->hasMany('Messages', [
             'foreignKey' => 'room_id',
