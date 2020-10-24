@@ -1,9 +1,3 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Post[]|\Cake\Collection\CollectionInterface $posts
- */
-?>
 <div class="container p-0">
     <div class="container text-center p-0">
         <div class="mx-auto">
@@ -27,7 +21,11 @@
             <?php foreach ($posts as $post): ?>
                 <!-- post card -->
                 <div class="card my-3 shadow-sm">
-                    <div class="card-header h5 border-bottom text-left"><?= $post->user_name ? $post->user_name : 'null' ?></div>
+                    <div class="card-header h5 border-bottom text-left">
+                        <?php if ($post->user_name) { ?>
+                            <a href="/users/profile/<?= $post->user_id ?>" class="text-decoration-none"><?= $post->user_name ?></a>
+                        <?php } ?>
+                    </div>
                     <div class="card-body text-left">
                         <?= h($post->text) ?>
                     </div>

@@ -11,7 +11,7 @@ class UsersHelper extends Helper
     use ModelAwareTrait;
 
     // 名前を返す
-    public function getOneUserName(int $id)
+    public function getOneUserName($id)
     {
 
         $this->loadModel('Users');
