@@ -40,7 +40,7 @@ class UsersController extends AppController
      *
      * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
      */
-    public function add()
+    public function signup()
     {
         $user = $this->Users->newEmptyEntity();
         if ($this->request->is('post')) {
@@ -48,7 +48,7 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 return $this->redirect(['action' => 'edit']);
             }
-            $this->Flash->error(__('すまん、もう一度頼むわ'));
+            $this->Flash->error(__('エラーが発生しました。再度お試しください。'));
         }
         $this->set('user', $user);
     }
@@ -122,7 +122,24 @@ class UsersController extends AppController
         parent::beforeFilter($event);
         // ログインアクションを認証を必要としないように設定することで、
         // 無限リダイレクトループの問題を防ぐことができます
-        $this->Authentication->addUnauthenticatedActions(['login', 'add']);
+        $this->Authentication->addUnauthenticatedActions(['login', 'signup']);
+    }
+
+    public function profile($id = null)
+    {
+        $isId = $id ? true : false;
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        if ((int)$id === $currentId) {
+            return $this->redirect('/users/profile');
+        }
+        $currentUser = $this->Users->get($currentId);
+        $this->set(compact('currentUser', 'isId'));
+        if ($id === null) {
+            return;
+        }
+        $user = $this->Users->get($id);
+        $this->Users->get($id);
+        $this->set(compact('user'));
     }
 
     public function login()
