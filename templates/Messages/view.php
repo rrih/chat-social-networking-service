@@ -10,7 +10,7 @@
         <?php foreach ($messages as $msg): ?>
             <div class="border">
                 <div>
-                    送信者 <?= $this->Users->getOneUserName($msg->user_id) ?>
+                    送信者 <?= $this->Users->getOneUserName($msg->message_user_id) ?>
                 </div>
                 <div>
                     <?= $msg->message ?>

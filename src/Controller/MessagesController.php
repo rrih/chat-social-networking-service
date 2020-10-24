@@ -54,9 +54,12 @@ class MessagesController extends AppController
             $room = $this->Rooms->newEmptyEntity();
             $room->user_id = $id;
             $this->Rooms->save($room);
+            // $room = $this->Rooms->newEmptyEntity();
+            // $room->user_id = $userId;
+            // $this->Rooms->save($room);
         }
         // debug($this->Entries->find()->where(['user_id' => $userId])->first());
-        $userRoom = $this->Entries->find()->where(['user_id' => $userId])->first();
+        $userRoom = $this->Entries->find()->where(['user_id' => $id])->first();
 
         if (!empty($userRoom)) {
             // userRoomがあれば、
@@ -79,8 +82,31 @@ class MessagesController extends AppController
             $message->room_id = $room->id;
             $message->message = $this->request->getData('message'); // とりあえずhogeでいれる。あとでrequesデータ入れる
             $this->Messages->save($message);
+            $message = $this->Messages->newEmptyEntity();
+            $message->user_id = $userId;
+            $message->room_id = $room->id;
+            $message->message = $this->request->getData('message'); // とりあえずhogeでいれる。あとでrequesデータ入れる
+            $this->Messages->save($message);
         }
-        $messages = $this->Messages->find()->where(['user_id' => $id])->toList();
+        $messages = $this->Messages->find()
+            ->select([
+                'Messages.message',
+                'message_user_id' => 'Room.user_id',
+                'Messages.created',
+                'Messages.modified',
+            ])
+            ->join([
+                'Room' => [
+                    'table' => 'rooms',
+                    'type' => 'LEFT',
+                    'conditions' => 'Room.id = Messages.room_id',
+                ]
+            ])
+            ->where([
+                'Messages.user_id' => $userId,
+                'Messages.room_id' => $room->id,
+            ])
+            ->toList();
         $this->set(compact('messages'));
     }
 }
