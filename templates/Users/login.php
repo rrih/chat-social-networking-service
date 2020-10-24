@@ -11,5 +11,5 @@
         </div>
     <?= $this->Form->end() ?>
 
-    <?= $this->Html->link("まだ登録していない方はこちら", ['action' => 'add']) ?>
+    <?= $this->Html->link("まだ登録していない方はこちら", ['action' => 'signup']) ?>
 </div>
