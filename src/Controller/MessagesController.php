@@ -18,7 +18,7 @@ class MessagesController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($userId = null)
+    public function view($userId)
     {
         $this->loadModel('Users');
         $this->loadModel('Rooms');
@@ -40,8 +40,8 @@ class MessagesController extends AppController
                     [
                         'user_id' => $userId,
                         'other_user_id' => $id,
-                    ]
-                ]
+                    ],
+                ],
             ])
             ->first();
         if (empty($room)) {
@@ -73,7 +73,6 @@ class MessagesController extends AppController
                 ]
             ])
             ->where([
-                // 'Messages.user_id' => $userId,
                 'Messages.room_id' => $room->id,
             ])
             ->toList();
