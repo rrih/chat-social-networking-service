@@ -1,0 +1,23 @@
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #24292E;
+        color: #9DA5B4;
+    }
+    a {
+        background-color: #24292E;
+        color: #9DA5B4 !important;
+    }
+    .card {
+        /* background-color: white; */
+        /* color: black; */
+    }
+    .card-header {
+        background-color: #24292E;
+    }
+    .btn a {
+        color: #9DA5B4 !important;
+    }
+    a i {
+        color: #9DA5B4;
+    }
+}

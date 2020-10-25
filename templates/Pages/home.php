@@ -48,8 +48,37 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <style type="text/css">
+    @media (prefers-color-scheme: dark) {
+        body {
+            background-color: #24292E;
+            color: #9DA5B4;
+        }
+        a {
+            background-color: #24292E;
+            color: #9DA5B4 !important;
+        }
+        .card-header, .card-body, .card-text, .card-footer {
+            background-color: #24292E;
+            color: #9DA5B4;
+            border-color: #9DA5B4;
+        }
+        .btn a {
+            background-color: #9DA5B4;
+            color: #24292E !important;
+            border-color: #9DA5B4;
+        }
+        .btn {
+            color: #9DA5B4;
+            border-color: #9DA5B4;
+        }
+        a i {
+            color: #9DA5B4;
+        }
+    }
+    </style>
 </head>
-<body class="" style="background-color: black; color: white;">
+<body class="">
     <nav class="text-lift navbar p-0 fixed-top">
         <div>
             <a href="/posts" class=" text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
