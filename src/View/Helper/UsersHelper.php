@@ -32,7 +32,6 @@ class UsersHelper extends Helper
         } else {
             return false;
         }
-        // return $relation !== null; // true -> フォローできない、 false -> フォローできる
     }
 }
 ?>

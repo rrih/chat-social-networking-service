@@ -184,13 +184,13 @@ class UsersController extends AppController
         $this->loadModel('Relationships');
         $currentId = $this->Authentication->getResult()->getData()->id;
         // 異なるユーザであるかの確認
-        // 既にフォローしていないか？の確認もする
+        // TODO 既にフォローしていないか？の確認もする
         if ((int)$currentId !== (int)$userId) {
             $relationship = $this->Relationships->newEmptyEntity();
             $relationship->follower_id = $currentId;
             $relationship->following_id = $userId;
             $this->Relationships->save($relationship);
-            return $this->redirect(['controller' => 'Users', 'action' => 'profile', $userId]);
+            return $this->redirect($this->referer());
         }
     }
 
@@ -201,11 +201,10 @@ class UsersController extends AppController
         $currentId = $this->Authentication->getResult()->getData()->id;
         // 自分で自分を unfollow などできないはずだけど
         if ((int)$currentId !== (int)$userId) {
-            $relationship = $this->Relationships->newEmptyEntity();
-            $relationship->follower_id = $currentId;
-            $relationship->following_id = $userId;
-            $this->Relationships->delete($relationship);
-            return $this->redirect(['controller' => 'Users', 'action' => 'profile', $userId]);
+            if ($this->Relationships->deleteAll(['follower_id' => $currentId, 'following_id' => $userId])) {
+                return $this->redirect($this->referer());
+            }
+            // TODO アンフォローできなかった場合の処理
         }
     }
 }

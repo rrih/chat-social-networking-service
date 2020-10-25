@@ -7,7 +7,6 @@
                 <?php if ($this->Users->isFollowing($user->id, $currentUser->id)) { ?>
                     <?= $this->Form->postLink(__('フォローをやめる'), ['action' => 'unfollow', $user->id], ['class' => 'btn btn-danger']) ?>
                 <?php } else { ?>
-                    <!-- <button class="btn btn-primary" onClick>フォローする</button> -->
                     <?= $this->Form->postLink(__('フォローする'), ['action' => 'follow', $user->id], ['class' => 'btn btn-primary']) ?>
                 <?php } ?>
             </div>
