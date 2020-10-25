@@ -7,7 +7,7 @@
             <?php
                 echo $this->Form->control('message', ['label' => false, 'type' => 'textarea', 'class' => 'form-control', 'empty' => false, 'required' => true, 'name' => 'message', 'maxlength' => 500]);
             ?>
-            <div class="text-center my-3"><?= $this->Form->button(__('送信'), ['class' => 'btn btn-outline-primary rounded-pill px-4 py-3']) ?></div>
+            <div class="text-center my-3"><?= $this->Form->button(__('送信'), ['class' => 'btn rounded-pill px-4 py-3']) ?></div>
         <?= $this->Form->end() ?>
         <?php foreach ($messages as $msg): ?>
             <div class="card my-3 shadow-sm">
@@ -17,7 +17,7 @@
                 <div class="card-body text-left">
                     <?= $msg->message ?>
                 </div>
-                <div class="card-footer text-muted" style="font-size: 15px">
+                <div class="card-footer" style="font-size: 15px">
                     <?= $msg->created->format('yy-m-d h:m:s') ?>
                 </div>
             </div>
