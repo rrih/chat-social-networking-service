@@ -217,7 +217,7 @@ class UsersController extends AppController
     {
         $this->loadModel('Relationships');
         $currentId = $this->Authentication->getResult()->getData()->id;
-        $followingList = $this->Relationships->find()
+        $followings = $this->Relationships->find()
             ->select([
                 'following_id',
             ])
@@ -225,8 +225,7 @@ class UsersController extends AppController
                 'follower_id' => $currentId,
             ])
             ->toList();
-        $this->paginate($followingList);
-        $this->set(compact('followingList'));
+        $this->set(compact('followings'));
     }
 
     /**
@@ -238,7 +237,7 @@ class UsersController extends AppController
     {
         $this->loadModel('Relationships');
         $currentId = $this->Authentication->getResult()->getData()->id;
-        $followerList = $this->Relationships->find()
+        $followers = $this->Relationships->find()
         ->select([
             'follower_id',
         ])
@@ -246,7 +245,6 @@ class UsersController extends AppController
             'following_id' => $currentId,
         ])
         ->toList();
-        $this->paginate($followerList);
-        $this->set(compact('followerList'));
+        $this->set(compact('followers'));
     }
 }

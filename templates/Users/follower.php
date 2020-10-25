@@ -1,8 +1,10 @@
 <div class="container text-center">
     フォロワー一覧
-    <?php foreach ($followerList as $follower): ?>
-        <!-- <div class="text-left"> -->
-            <?= $this->Users->getOneUserName($follower->follower_id) ?>
-        <!-- </div> -->
-    <?php endforeach; ?>
+    <ul>
+        <?php foreach ($followers as $follower) : ?>
+            <li>
+                <?= $this->Users->getOneUserName($follower->follower_id) ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
 </div>
