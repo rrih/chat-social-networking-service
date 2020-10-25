@@ -213,18 +213,32 @@ class UsersController extends AppController
      *
      * @return void
      */
-    public function following()
+    public function following($id = null)
     {
         $this->loadModel('Relationships');
-        $currentId = $this->Authentication->getResult()->getData()->id;
-        $followings = $this->Relationships->find()
-            ->select([
-                'following_id',
-            ])
-            ->where([
-                'follower_id' => $currentId,
-            ])
-            ->toList();
+        $followings = [];
+        // 自分以外の誰かのフォロー一覧を見たい場合
+        if ($id !== null) {
+            $followings = $this->Relationships->find()
+                ->select([
+                    'following_id',
+                ])
+                ->where([
+                    'follower_id' => $id,
+                ])
+                ->toList();
+        } else {
+        // 自分のフォロー一覧を見たい場合
+            $currentId = $this->Authentication->getResult()->getData()->id;
+            $followings = $this->Relationships->find()
+                ->select([
+                    'following_id',
+                ])
+                ->where([
+                    'follower_id' => $currentId,
+                ])
+                ->toList();
+        }
         $this->set(compact('followings'));
     }
 
@@ -233,18 +247,30 @@ class UsersController extends AppController
      *
      * @return void
      */
-    public function follower()
+    public function follower($id = null)
     {
         $this->loadModel('Relationships');
-        $currentId = $this->Authentication->getResult()->getData()->id;
-        $followers = $this->Relationships->find()
-        ->select([
-            'follower_id',
-        ])
-        ->where([
-            'following_id' => $currentId,
-        ])
-        ->toList();
+        $followers = [];
+        if ($id !== null) {
+            $followers = $this->Relationships->find()
+                ->select([
+                    'follower_id',
+                ])
+                ->where([
+                    'following_id' => $id,
+                ])
+                ->toList();
+        } else {
+            $currentId = $this->Authentication->getResult()->getData()->id;
+            $followers = $this->Relationships->find()
+                ->select([
+                    'follower_id',
+                ])
+                ->where([
+                    'following_id' => $currentId,
+                ])
+                ->toList();
+        }
         $this->set(compact('followers'));
     }
 }

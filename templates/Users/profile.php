@@ -14,10 +14,22 @@
             <div>
                 <a href="/messages/view/<?= $user->id ?>" class="btn btn-outline-success rounded-pill py-3 px-4">メッセージ</a>
             </div>
+            <div>
+                <a href="/users/following/<?= $user->id ?>">フォロー</a>
+            </div>
+            <div>
+                <a href="/users/follower/<?= $user->id ?>">フォロワー</a>
+            </div>
         <?php } else { ?>
             <!-- 自分のプロフィール画面 -->
             <div><?= $currentUser->name ?></div>
             <div><?= $currentUser->created->format('yy-m-d h:m:s') ?>からお気持ち.comを利用しています</div>
+            <div>
+                <a href="/users/following/">フォロー</a>
+            </div>
+            <div>
+                <a href="/users/follower">フォロワー</a>
+            </div>
         <?php } ?>
     </div>
 </div>
