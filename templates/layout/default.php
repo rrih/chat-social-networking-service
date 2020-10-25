@@ -57,13 +57,13 @@ $cakeDescription = 'お気持ち.com';
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="text-decoration-none">
+                    <a href="/users/following" class="text-decoration-none">
                         <i class="fas fa-user-friends"></i>
                         <div style="font-size: 7px">フォロー</div>
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="text-decoration-none">
+                    <a href="/users/follower" class="text-decoration-none">
                         <i class="fas fa-users"></i>
                         <div style="font-size: 7px">フォロワー</div>
                     </a>
