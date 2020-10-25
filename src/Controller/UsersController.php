@@ -138,7 +138,6 @@ class UsersController extends AppController
             return;
         }
         $user = $this->Users->get($id);
-        $this->Users->get($id);
         $this->set(compact('user'));
     }
 
@@ -181,6 +180,8 @@ class UsersController extends AppController
      */
     public function follow($userId)
     {
+        $this->autoRender = false;
+        $this->loadModel('Relationships');
         $currentId = $this->Authentication->getResult()->getData()->id;
         // 異なるユーザであるかの確認
         // 既にフォローしていないか？の確認もする
@@ -189,12 +190,14 @@ class UsersController extends AppController
             $relationship->follower_id = $currentId;
             $relationship->following_id = $userId;
             $this->Relationships->save($relationship);
-            return $this->redirect(['controller' => 'Users', 'action' => 'profile']);
+            return $this->redirect(['controller' => 'Users', 'action' => 'profile', $userId]);
         }
     }
 
     public function unfollow($userId)
     {
+        $this->autoRender = false;
+        $this->loadModel('Relationships');
         $currentId = $this->Authentication->getResult()->getData()->id;
         // 自分で自分を unfollow などできないはずだけど
         if ((int)$currentId !== (int)$userId) {
@@ -202,7 +205,7 @@ class UsersController extends AppController
             $relationship->follower_id = $currentId;
             $relationship->following_id = $userId;
             $this->Relationships->delete($relationship);
-            return $this->redirect(['controller' => 'Users', 'action' => 'profile']);
+            return $this->redirect(['controller' => 'Users', 'action' => 'profile', $userId]);
         }
     }
 }

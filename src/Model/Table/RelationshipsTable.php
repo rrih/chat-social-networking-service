@@ -78,8 +78,8 @@ class RelationshipsTable extends Table
      */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['follower_id'], 'Followers'), ['errorField' => 'follower_id']);
-        $rules->add($rules->existsIn(['following_id'], 'Followings'), ['errorField' => 'following_id']);
+        // $rules->add($rules->existsIn(['follower_id'], 'Followers'), ['errorField' => 'follower_id']);
+        // $rules->add($rules->existsIn(['following_id'], 'Followings'), ['errorField' => 'following_id']);
 
         return $rules;
     }

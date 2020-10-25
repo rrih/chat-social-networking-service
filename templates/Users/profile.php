@@ -4,10 +4,11 @@
             <!-- 他のユーザのプロフィール画面 -->
             <div><?= $user->name ?></div>
             <div>
-                <?php if($isFollowing) { ?>
-                    <button class="btn btn-primary">フォローする</button>
+                <?php if ($this->Users->isFollowing($user->id, $currentUser->id)) { ?>
+                    <?= $this->Form->postLink(__('フォローをやめる'), ['action' => 'unfollow', $user->id], ['class' => 'btn btn-danger']) ?>
                 <?php } else { ?>
-                    <button class="btn btn-danger">フォローをやめる</button>
+                    <!-- <button class="btn btn-primary" onClick>フォローする</button> -->
+                    <?= $this->Form->postLink(__('フォローする'), ['action' => 'follow', $user->id], ['class' => 'btn btn-primary']) ?>
                 <?php } ?>
             </div>
             <div><?= $user->created->format('yy-m-d h:m:s') ?>からお気持ち.comを利用しています</div>
