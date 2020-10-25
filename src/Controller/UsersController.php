@@ -207,4 +207,46 @@ class UsersController extends AppController
             // TODO アンフォローできなかった場合の処理
         }
     }
+
+    /**
+     * 自分がフォローしているアカウント一覧の表示
+     *
+     * @return void
+     */
+    public function following()
+    {
+        $this->loadModel('Relationships');
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        $followingList = $this->Relationships->find()
+            ->select([
+                'following_id',
+            ])
+            ->where([
+                'follower_id' => $currentId,
+            ])
+            ->toList();
+        $this->paginate($followingList);
+        $this->set(compact('followingList'));
+    }
+
+    /**
+     * 自分のことをフォローしているアカウント一覧の表示
+     *
+     * @return void
+     */
+    public function follower()
+    {
+        $this->loadModel('Relationships');
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        $followerList = $this->Relationships->find()
+        ->select([
+            'follower_id',
+        ])
+        ->where([
+            'following_id' => $currentId,
+        ])
+        ->toList();
+        $this->paginate($followerList);
+        $this->set(compact('followerList'));
+    }
 }
