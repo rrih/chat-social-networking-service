@@ -8,7 +8,7 @@
                             <?= $this->Form->control('content', ['label' => false, 'type' => 'text', 'div' => false, 'class' => 'form-control', 'value' => $params['q'], 'empty' => true, 'required' => false, 'name' => 'q', 'placeholder' => 'キーワード検索']); ?>
                         </td>
                         <td class="d-block">
-                            <?= $this->Form->button('検索', ['div' => true, 'class' => 'btn btn-primary', 'style' => 'width: 75px']) ?>
+                            <?= $this->Form->button('検索', ['div' => true, 'class' => 'btn', 'style' => 'width: 75px']) ?>
                         </td>
                     </tr>
                 </table>
@@ -29,16 +29,16 @@
                     <div class="card-body text-left">
                         <?= h($post->text) ?>
                     </div>
-                    <div class="card-text text-right text-muted">
+                    <div class="card-text text-right">
                         表明日時 <?= $post->post_created->format('yy-m-d h:m:s') ?>
                     </div>
                     <?php if ($post->post_created) { ?>
-                        <div class="card-footer text-muted text-right" style="font-size: 30px">
+                        <div class="card-footer text-right" style="font-size: 30px">
                             <!-- TODO モーダル開いて、コメントを投稿できるようにする -->
-                            <a href="#" class="btn btn-outline-primary rounded-pill px-3">
+                            <a href="#" class="btn rounded-pill px-3">
                                 <i class="far fa-comment"></i>
                             </a>
-                            <a href="#" class="btn btn-outline-dark rounded-pill px-3">
+                            <a href="#" class="btn rounded-pill px-3">
                             <i class="fas fa-retweet"></i>
                             </a>
                             <?= $this->Form->postLink(
@@ -48,7 +48,7 @@
                                     $post->id
                                 ],
                                 [
-                                    'class' => 'btn btn-outline-success rounded-pill'
+                                    'class' => 'btn rounded-pill'
                                 ]
                             )
                             ?>
@@ -59,7 +59,7 @@
                                     $post->id
                                 ],
                                 [
-                                    'class' => 'btn btn-outline-danger rounded-pill'
+                                    'class' => 'btn rounded-pill'
                                 ]
                             )
                             ?>

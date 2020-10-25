@@ -19,23 +19,43 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <style type="text/css">
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: black;
+                color: white;
+                /* a {
+                    background-color: black;
+                    color: white;
+                } */
+            }
+            a {
+                background-color: black;
+                color: white;
+            }
+            .card {
+                background-color: white;
+                color: black;
+            }
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <nav class="text-lift navbar text-white bg-primary p-0 fixed-top">
+<body class="" style="">
+    <nav class="text-lift navbar p-0 fixed-top">
         <div>
-            <a href="/posts" class="text-white text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
+            <a href="/posts" class="text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
                 <i class="fas fa-home"></i>
             </a>
         </div>
         <div>
-            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none px-4']) ?>
+            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-decoration-none px-4']) ?>
         </div>
     </nav>
     <main class="main">
         <div class="container d-md-flex px-0 py-5">
 
             <!-- 各種操作アイコンたち mdサイズ以上でのみ表示 -->
-            <div class="d-none d-md-block my-4 text-primary text-center" style="font-size: 45px">
+            <div class="d-none d-md-block my-4 text-center" style="font-size: 45px">
                 <div>
                     <a href="/posts/add" class="text-decoration-none">
                         <i class="fas fa-pen"></i>
@@ -74,24 +94,24 @@ $cakeDescription = 'お気持ち.com';
             <?= $this->fetch('content') ?>
 
             <!-- sm 以下のサイズでのみ表示。スマホで使う用。 -->
-            <div class="d-flex d-md-none text-center fixed-bottom justify-content-between bg-primary" style="font-size: 30px">
+            <div class="d-flex d-md-none text-center fixed-bottom justify-content-between" style="font-size: 30px">
                 <div>
-                    <a href="/posts" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                    <a href="/posts" class="text-decoration-none px-4 py-1 text-decoration-none ">
                         <i class="fas fa-home"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="/users/edit/" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                    <a href="/users/edit/" class="text-decoration-none px-4 py-1 text-decoration-none ">
                         <i class="fas fa-user-edit"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="/users/like" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                    <a href="/users/like" class="text-decoration-none px-4 py-1 text-decoration-none">
                         <i class="far fa-thumbs-up"></i>
                     </a>
                 </div>
                 <div>
-                    <a href="/posts/add" class="text-decoration-none px-4 py-1 text-decoration-none text-white">
+                    <a href="/posts/add" class="text-decoration-none px-4 py-1 text-decoration-none">
                         <i class="fas fa-pen"></i>
                     </a>
                 </div>

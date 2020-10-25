@@ -49,15 +49,15 @@ $cakeDescription = 'お気持ち.com';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
-<body class="bg-light">
-    <nav class="text-lift navbar text-white bg-primary p-0 fixed-top">
+<body class="" style="background-color: black; color: white;">
+    <nav class="text-lift navbar p-0 fixed-top">
         <div>
-            <a href="/posts" class="text-white text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
+            <a href="/posts" class=" text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
                 <i class="fas fa-home"></i>
             </a>
         </div>
         <div>
-            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => 'text-white text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-white text-decoration-none px-4']) ?>
+            <?= $this->request->getAttributes()['identity'] == null ? $this->Html->link(__('ログイン'), ['controller' => 'users', 'action' => 'login'], ['class' => ' text-decoration-none px-4']) : $this->Html->link(__('ログアウト'), ['controller' => 'users', 'action' => 'logout'], ['class' => 'text-decoration-none px-4']) ?>
         </div>
     </nav>
     <main class="main">
@@ -85,7 +85,7 @@ $cakeDescription = 'お気持ち.com';
                         $this->Html->link(
                             __('お気持ち表明を見に行く'),
                             ['controller' => 'posts', 'action' => 'index'],
-                            ['class' => 'btn btn-outline-primary mx-3 my-5 py-3 px-5 rounded-pill']
+                            ['class' => 'btn mx-3 my-5 py-3 px-5 rounded-pill']
                         )
                     ?>
                 </div>
@@ -134,10 +134,10 @@ $cakeDescription = 'お気持ち.com';
             </div>
         </div>
     </main>
-    <footer class="footer navbar text-center bg-primary text-light">
+    <footer class="footer navbar text-center ">
         <div>お気持ち.com</div>
         <div>
-            <a href="#" class="text-light text-decoration-none">プライバシーポリシー</a>
+            <a href="#" class=" text-decoration-none">プライバシーポリシー</a>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

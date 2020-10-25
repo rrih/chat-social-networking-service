@@ -8,7 +8,7 @@
                 echo $this->Form->control('password', ['label' => 'パスワード', 'class' => 'form-control']);
             ?>
             <div class="text-center my-3">
-                <?= $this->Form->button(__('更新する'), ['class' => 'btn btn-outline-primary']) ?>
+                <?= $this->Form->button(__('更新する'), ['class' => 'btn']) ?>
             </div>
         <?= $this->Form->end() ?>
     </div>

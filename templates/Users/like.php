@@ -8,7 +8,7 @@
             <div class="card-header h5 border-bottom"><?= $post->id ? $this->Users->getOneUserName($post->user_id) : 'null' ?></div>
             <div class="card-body"><?= h($post->text) ?></div>
             <?php if ($post->created) { ?>
-                <div class="card-footer text-muted">
+                <div class="card-footer ">
                     投稿日時 <?= $post->created->format('yy-m-d h:m:s') ?>
                 </div>
             <?php } ?>

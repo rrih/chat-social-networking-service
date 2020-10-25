@@ -5,14 +5,14 @@
             <div><?= $user->name ?></div>
             <div>
                 <?php if ($this->Users->isFollowing($user->id, $currentUser->id)) { ?>
-                    <?= $this->Form->postLink(__('フォローをやめる'), ['action' => 'unfollow', $user->id], ['class' => 'btn btn-danger']) ?>
+                    <?= $this->Form->postLink(__('フォローをやめる'), ['action' => 'unfollow', $user->id], ['class' => 'btn ']) ?>
                 <?php } else { ?>
-                    <?= $this->Form->postLink(__('フォローする'), ['action' => 'follow', $user->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Form->postLink(__('フォローする'), ['action' => 'follow', $user->id], ['class' => 'btn ']) ?>
                 <?php } ?>
             </div>
             <div><?= $user->created->format('yy-m-d h:m:s') ?>からお気持ち.comを利用しています</div>
             <div>
-                <a href="/messages/view/<?= $user->id ?>" class="btn btn-outline-success rounded-pill py-3 px-4">メッセージ</a>
+                <a href="/messages/view/<?= $user->id ?>" class="btn rounded-pill py-3 px-4">メッセージ</a>
             </div>
             <div>
                 <a href="/users/following/<?= $user->id ?>">フォロー</a>
