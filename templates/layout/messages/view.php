@@ -1,7 +1,6 @@
 <div class="text-center container">
     <div>
-        <?= $otherUser->name ?>
-        <?= $this->Form->create(null, ['url' => '/messages/view/' . $otherUser->id, 'type' => 'post']) ?>
+        <?= $this->Form->create(null, ['url' => '/messages/view/' . $id, 'type' => 'post']) ?>
             <?php
                 echo $this->Form->control('message', ['label' => 'メッセージ', 'type' => 'textarea', 'class' => 'form-control', 'empty' => false, 'required' => true, 'name' => 'message', 'maxlength' => 500]);
             ?>
