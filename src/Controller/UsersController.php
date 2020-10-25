@@ -138,7 +138,6 @@ class UsersController extends AppController
             return;
         }
         $user = $this->Users->get($id);
-        $this->Users->get($id);
         $this->set(compact('user'));
     }
 
@@ -170,6 +169,42 @@ class UsersController extends AppController
         if ($result->isValid()) {
             $this->Authentication->logout();
             return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
+        }
+    }
+
+    /**
+     * 引数、$userId はフォローする相手のユーザーID。フォローメソッド。
+     *
+     * @param [type] $userId
+     * @return void
+     */
+    public function follow($userId)
+    {
+        $this->autoRender = false;
+        $this->loadModel('Relationships');
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        // 異なるユーザであるかの確認
+        // TODO 既にフォローしていないか？の確認もする
+        if ((int)$currentId !== (int)$userId) {
+            $relationship = $this->Relationships->newEmptyEntity();
+            $relationship->follower_id = $currentId;
+            $relationship->following_id = $userId;
+            $this->Relationships->save($relationship);
+            return $this->redirect($this->referer());
+        }
+    }
+
+    public function unfollow($userId)
+    {
+        $this->autoRender = false;
+        $this->loadModel('Relationships');
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        // 自分で自分を unfollow などできないはずだけど
+        if ((int)$currentId !== (int)$userId) {
+            if ($this->Relationships->deleteAll(['follower_id' => $currentId, 'following_id' => $userId])) {
+                return $this->redirect($this->referer());
+            }
+            // TODO アンフォローできなかった場合の処理
         }
     }
 }
