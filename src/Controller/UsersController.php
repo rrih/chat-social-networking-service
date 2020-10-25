@@ -172,4 +172,37 @@ class UsersController extends AppController
             return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
         }
     }
+
+    /**
+     * 引数、$userId はフォローする相手のユーザーID。フォローメソッド。
+     *
+     * @param [type] $userId
+     * @return void
+     */
+    public function follow($userId)
+    {
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        // 異なるユーザであるかの確認
+        // 既にフォローしていないか？の確認もする
+        if ((int)$currentId !== (int)$userId) {
+            $relationship = $this->Relationships->newEmptyEntity();
+            $relationship->follower_id = $currentId;
+            $relationship->following_id = $userId;
+            $this->Relationships->save($relationship);
+            return $this->redirect(['controller' => 'Users', 'action' => 'profile']);
+        }
+    }
+
+    public function unfollow($userId)
+    {
+        $currentId = $this->Authentication->getResult()->getData()->id;
+        // 自分で自分を unfollow などできないはずだけど
+        if ((int)$currentId !== (int)$userId) {
+            $relationship = $this->Relationships->newEmptyEntity();
+            $relationship->follower_id = $currentId;
+            $relationship->following_id = $userId;
+            $this->Relationships->delete($relationship);
+            return $this->redirect(['controller' => 'Users', 'action' => 'profile']);
+        }
+    }
 }
