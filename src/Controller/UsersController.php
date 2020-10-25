@@ -207,4 +207,70 @@ class UsersController extends AppController
             // TODO アンフォローできなかった場合の処理
         }
     }
+
+    /**
+     * 自分がフォローしているアカウント一覧の表示
+     *
+     * @return void
+     */
+    public function following($id = null)
+    {
+        $this->loadModel('Relationships');
+        $followings = [];
+        // 自分以外の誰かのフォロー一覧を見たい場合
+        if ($id !== null) {
+            $followings = $this->Relationships->find()
+                ->select([
+                    'following_id',
+                ])
+                ->where([
+                    'follower_id' => $id,
+                ])
+                ->toList();
+        } else {
+        // 自分のフォロー一覧を見たい場合
+            $currentId = $this->Authentication->getResult()->getData()->id;
+            $followings = $this->Relationships->find()
+                ->select([
+                    'following_id',
+                ])
+                ->where([
+                    'follower_id' => $currentId,
+                ])
+                ->toList();
+        }
+        $this->set(compact('followings'));
+    }
+
+    /**
+     * 自分のことをフォローしているアカウント一覧の表示
+     *
+     * @return void
+     */
+    public function follower($id = null)
+    {
+        $this->loadModel('Relationships');
+        $followers = [];
+        if ($id !== null) {
+            $followers = $this->Relationships->find()
+                ->select([
+                    'follower_id',
+                ])
+                ->where([
+                    'following_id' => $id,
+                ])
+                ->toList();
+        } else {
+            $currentId = $this->Authentication->getResult()->getData()->id;
+            $followers = $this->Relationships->find()
+                ->select([
+                    'follower_id',
+                ])
+                ->where([
+                    'following_id' => $currentId,
+                ])
+                ->toList();
+        }
+        $this->set(compact('followers'));
+    }
 }
