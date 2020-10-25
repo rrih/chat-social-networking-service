@@ -46,11 +46,15 @@ $cakeDescription = 'お気持ち.com';
         a i {
             color: #9DA5B4;
         }
+        .bg-bar-for-sp {
+            background-color: #24292E;
+            border-color: #9DA5B4;
+        }
     }
     </style>
 </head>
 <body class="" style="">
-    <nav class="text-lift navbar p-0 fixed-top">
+    <nav class="text-lift navbar p-0 fixed-top bg-bar-for-sp">
         <div>
             <a href="/posts" class="text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
                 <i class="fas fa-home"></i>
@@ -103,7 +107,7 @@ $cakeDescription = 'お気持ち.com';
             <?= $this->fetch('content') ?>
 
             <!-- sm 以下のサイズでのみ表示。スマホで使う用。 -->
-            <div class="d-flex d-md-none text-center fixed-bottom justify-content-between" style="font-size: 30px">
+            <div class="d-flex d-md-none text-center fixed-bottom justify-content-between bg-bar-for-sp" style="font-size: 30px">
                 <div>
                     <a href="/posts" class="text-decoration-none px-4 py-1 text-decoration-none ">
                         <i class="fas fa-home"></i>
