@@ -3,9 +3,16 @@
         <?php if ($isId) { ?>
             <!-- 他のユーザのプロフィール画面 -->
             <div><?= $user->name ?></div>
+            <div>
+                <?php if($isFollowing) { ?>
+                    <button class="btn btn-primary">フォローする</button>
+                <?php } else { ?>
+                    <button class="btn btn-danger">フォローをやめる</button>
+                <?php } ?>
+            </div>
             <div><?= $user->created->format('yy-m-d h:m:s') ?>からお気持ち.comを利用しています</div>
             <div>
-                <a href="/messages/view/<?= $user->id ?>">メッセージを送る</a>
+                <a href="/messages/view/<?= $user->id ?>">メッセージ</a>
             </div>
         <?php } else { ?>
             <!-- 自分のプロフィール画面 -->
