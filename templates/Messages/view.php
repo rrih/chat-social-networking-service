@@ -11,16 +11,15 @@
         <?= $this->Form->end() ?>
         <?php foreach ($messages as $msg): ?>
             <div class="card my-3 shadow-sm">
-                <div class="card-header h5 border-bottom d-flex justify-content-between">
-                    <div>送信者 <?= $this->Users->getOneUserName($msg->message_user_id) ?></div>
-                    <div class="text-right">
-                        <?= $msg->created->format('yy-m-d h:m:s') ?>
-                    </div>
+                <div class="card-header border-bottom">
+                    <div><?= $this->Users->getOneUserName($msg->message_user_id) ?></div>
                 </div>
                 <div class="card-body text-left">
                     <?= $msg->message ?>
                 </div>
-
+                <div class="card-footer text-muted" style="font-size: 15px">
+                    <?= $msg->created->format('yy-m-d h:m:s') ?>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>
