@@ -24,11 +24,13 @@ class MessagesController extends AppController
         $this->loadModel('Rooms');
         $this->loadModel('Messages');
         $id = $this->Authentication->getResult()->getData()->id;
-        $this->set(compact('id'));
+
         // 自分にDMは遅れないようにする。
         if ((int)$userId === (int)$id) {
-            return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
+            // return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
         }
+        $otherUser = $this->Users->get($userId);
+
         // まず room について
         $room = $this->Rooms->find()
             ->where([
@@ -76,6 +78,7 @@ class MessagesController extends AppController
                 'Messages.room_id' => $room->id,
             ])
             ->toList();
+        $this->set(compact('otherUser'));
         $this->set(compact('messages'));
     }
 }
