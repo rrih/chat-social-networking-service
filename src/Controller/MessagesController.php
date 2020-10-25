@@ -27,7 +27,7 @@ class MessagesController extends AppController
 
         // 自分にDMは遅れないようにする。
         if ((int)$userId === (int)$id) {
-            // return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
+            return $this->redirect(['controller' => 'Posts', 'action' => 'index']);
         }
         $otherUser = $this->Users->get($userId);
 
@@ -63,7 +63,7 @@ class MessagesController extends AppController
         $messages = $this->Messages->find()
             ->select([
                 'Messages.message',
-                'message_user_id' => 'Room.user_id',
+                'message_user_id' => 'Messages.user_id',
                 'Messages.created',
                 'Messages.modified',
             ])
