@@ -189,8 +189,12 @@ class UsersController extends AppController
             $relationship = $this->Relationships->newEmptyEntity();
             $relationship->follower_id = $currentId;
             $relationship->following_id = $userId;
-            $this->Relationships->save($relationship);
-            return $this->redirect($this->referer());
+            if ($this->Relationships->save($relationship)) {
+                // フォローできた場合
+                return $this->redirect('/users/profile/' . $userId);
+            } else {
+                // TODO フォローできなかった場合、フラッシュメッセージでも挿入する
+            }
         }
     }
 
@@ -202,7 +206,7 @@ class UsersController extends AppController
         // 自分で自分を unfollow などできないはずだけど
         if ((int)$currentId !== (int)$userId) {
             if ($this->Relationships->deleteAll(['follower_id' => $currentId, 'following_id' => $userId])) {
-                return $this->redirect($this->referer());
+                return $this->redirect('/users/profile/' . $userId);
             }
             // TODO アンフォローできなかった場合の処理
         }
