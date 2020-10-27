@@ -75,11 +75,15 @@ $cakeDescription = 'お気持ち.com';
         a i {
             color: #9DA5B4;
         }
+        .bg-bar-for-sp {
+            background-color: #24292E;
+            border-color: #9DA5B4;
+        }
     }
     </style>
 </head>
 <body class="">
-    <nav class="text-lift navbar p-0 fixed-top">
+    <nav class="text-lift navbar p-0 fixed-top bg-bar-for-sp">
         <div>
             <a href="/posts" class=" text-decoration-none px-4 pt-3 pb-1" style="font-size: 30px">
                 <i class="fas fa-home"></i>
