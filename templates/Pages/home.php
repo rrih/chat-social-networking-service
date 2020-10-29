@@ -103,9 +103,7 @@ $cakeDescription = 'お気持ち.com';
                 <div class="py-5">
                     <h3>ここは何？🤔</h3>
                     <p class="py-2" style="font-size: 15px">
-                        お気持ちを表明する場所です。<br>
-                        Twitterより治安の良いインターネット空間を目指します。<br>
-                        開発者のPHPの練習場でもあります
+                        お気持ち表明の場
                     </p>
                 </div>
                 <div class="border-top border-bottom py-5 h4">
