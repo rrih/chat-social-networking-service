@@ -1,8 +1,10 @@
 <div class="d-block container">
     <div class="text-center h5">いいね</div>
     <?php
-        $posts = $results;
-        foreach ($posts as $post) {
+        // debug($results);
+        if ($results !== []) {
+            $posts = $results;
+            foreach ($posts as $post) {
     ?>
         <div class="card mb-3 shadow-sm">
             <div class="card-header h5 border-bottom"><?= $post->id ? $this->Users->getOneUserName($post->user_id) : 'null' ?></div>
@@ -13,5 +15,13 @@
                 </div>
             <?php } ?>
         </div>
-    <?php } ?>
+    <?php
+            }
+        } else {
+    ?>
+        <div class="text-center">まだいいねした表明はありません。いいねしましょう</div>
+    <?php
+            // echo 'まだいいねしている表明はありません。いいねしましょう';
+        }
+    ?>
 </div>
