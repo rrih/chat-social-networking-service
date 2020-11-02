@@ -10,7 +10,7 @@
             <div>お気持ち表明画面</div>
             <?= $user->name != null ? $user->name : 'null' ?> <a href="/users/edit/<?= $user->id ?>" class="text-decoration-none">編集する</a>
             <?php
-                echo $this->Form->control('text', ['label' => 'お気持ち内容', 'type' => 'textarea', 'class' => 'form-control', 'maxlength' => 1000]);
+                echo $this->Form->control('text', ['label' => 'お気持ち内容', 'type' => 'textarea', 'class' => 'form-control', 'maxlength' => 1000, 'placeholder' => 'いまどんなきもち？']);
             ?>
             <div class="text-center my-3"><?= $this->Form->button(__('この内容でお気持ち表明する'), ['class' => 'btn rounded-pill px-4 py-3']) ?></div>
         <?= $this->Form->end() ?>
