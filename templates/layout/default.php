@@ -125,6 +125,31 @@ $cakeDescription = 'お気持ち.com';
             <?= $this->fetch('content') ?>
 
             <!-- sm 以下のサイズでのみ表示。スマホで使う用。 -->
+            <div class="d-flex d-md-none"
+
+            >
+                <a href="/posts/add" class="text-decoration-none text-decoration-none"
+                style="
+                    font-size: 30px;
+                    position: fixed;
+                    right: 0;
+                    bottom: 50px;
+                    /* left: 0; */
+                    z-index: 1030;
+                    border-top-left-radius: 45px;
+                    border-bottom-left-radius: 45px;
+                    border-top-right-radius: 45px;
+                    border-bottom-right-radius: 45px;
+                    border: solid 1px #9DA5B4;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    padding-top: 13px;
+                    padding-bottom: 13px;
+                    "
+                >
+                    <i class="fas fa-pen"></i>
+                </a>
+            </div>
             <div class="d-flex d-md-none text-center fixed-bottom justify-content-between bg-bar-for-sp" style="font-size: 30px">
                 <div>
                     <a href="/posts" class="text-decoration-none px-4 py-1 text-decoration-none ">
@@ -142,8 +167,8 @@ $cakeDescription = 'お気持ち.com';
                     </a>
                 </div>
                 <div>
-                    <a href="/posts/add" class="text-decoration-none px-4 py-1 text-decoration-none">
-                        <i class="fas fa-pen"></i>
+                    <a href="#" class="text-decoration-none px-4 py-1 text-decoration-none">
+                        <i class="far fa-envelope"></i>
                     </a>
                 </div>
             </div>
