@@ -50,6 +50,24 @@ $cakeDescription = 'お気持ち.com';
             background-color: #24292E;
             border-color: #9DA5B4;
         }
+        /* ページネーション */
+        .pagination li {
+            border: solid 1px #9DA5B4;
+            padding: 10px;
+            /* margin: 10px; */
+        }
+        .pagination .first {
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border: solid 1px #9DA5B4;
+            padding-left: 25px;
+        }
+        .pagination .last {
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+            border: solid 1px #9DA5B4;
+            padding-right: 25px;
+        }
     }
     </style>
 </head>
