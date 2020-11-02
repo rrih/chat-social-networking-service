@@ -54,7 +54,9 @@ $cakeDescription = 'お気持ち.com';
         .pagination li {
             border: solid 1px #9DA5B4;
             padding: 10px;
-            /* margin: 10px; */
+        }
+        .pagination li a {
+            text-decoration: none;
         }
         .pagination .first {
             border-top-left-radius: 25px;
