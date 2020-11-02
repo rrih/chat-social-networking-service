@@ -134,7 +134,7 @@ $cakeDescription = 'お気持ち.com';
                 style="
                     font-size: 30px;
                     position: fixed;
-                    right: 0;
+                    right: 10px;
                     bottom: 50px;
                     /* left: 0; */
                     z-index: 1030;
