@@ -3,6 +3,62 @@
         <div class="mx-auto">
             <?= $this->Form->create(null, ['url' => '/posts', 'type' => 'get', 'div' => false, 'label' => false, 'class' => 'mt-3']) ?>
                 <table class="w-100">
+                    <!-- TODO フリート機能実装 とりあえずスマホのみ表示 -->
+                    <!-- 自分自身（ログインユーザ）と、フォローしているユーザーのアイコンを表示、クリックしたらそのユーザのフリートを表示させる -->
+                    <tr class="d-sm-none">
+                        <td class="d-flex justify-content-around mx-auto"
+                            style="
+                                /* とりあえず固定。あとでレスポンシブ化する */
+                                width: 300px;
+                                height: 60px;
+                                /* スクロールバー */
+                                overflow-x: auto;
+                                white-space: nowrap;
+                                overflow-scrolling: touch;
+                                /* スクロールを惰性にする */
+                                -webkit-overflow-scrolling: touch;
+                            "
+                        >
+                            <div class="ml-5"></div>
+                            <div class="ml-5 bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                追加する
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                                テスト
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="w-100">
+
+                    <!-- 検索フォーム いつか別ヘルパー的に切り出したい -->
                     <tr>
                         <td class="w-100">
                             <?= $this->Form->control('content', ['label' => false, 'type' => 'text', 'div' => false, 'class' => 'form-control', 'value' => $params['q'], 'empty' => true, 'required' => false, 'name' => 'q', 'placeholder' => 'キーワード検索']); ?>
