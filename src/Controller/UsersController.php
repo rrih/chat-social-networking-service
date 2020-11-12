@@ -89,7 +89,6 @@ class UsersController extends AppController
             ])
             ->toList();
         $likes = array_unique($likes);
-        // debug($likes);
         $results = [];
         foreach ($likes as $like) {
             // $this->Posts->get($like->post_id) が無い場合を考慮
@@ -98,7 +97,6 @@ class UsersController extends AppController
                 $results[] = $this->Posts->find()->select(['id', 'user_id', 'text', 'like_count', 'created', 'modified'])->where(['id' => $like->post_id])->first();
             }
         }
-        // debug($results);
         $this->set(compact('results'));
     }
 

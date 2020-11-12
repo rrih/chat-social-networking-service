@@ -1,7 +1,6 @@
 <div class="d-block container">
     <div class="text-center h5">いいね</div>
     <?php
-        // debug($results);
         if ($results !== []) {
             $posts = $results;
             foreach ($posts as $post) {
