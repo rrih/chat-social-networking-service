@@ -91,7 +91,11 @@ class UsersController extends AppController
         $likes = array_unique($likes);
         $results = [];
         foreach ($likes as $like) {
-            $results[] = $this->Posts->get($like->post_id); // Like モデルから、 Posts データを持ってくる
+            // $this->Posts->get($like->post_id) が無い場合を考慮
+            // レコードから post を物理削除した時、紐づいたいいね情報が残っているからここでエラーが起きる
+            if ($this->Posts->find()->select(['id'])->where(['id' => $like->post_id])->first()) {
+                $results[] = $this->Posts->find()->select(['id', 'user_id', 'text', 'like_count', 'created', 'modified'])->where(['id' => $like->post_id])->first();
+            }
         }
         $this->set(compact('results'));
     }
