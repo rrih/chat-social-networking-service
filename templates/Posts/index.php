@@ -6,10 +6,11 @@
                     <!-- TODO フリート機能実装 とりあえずスマホのみ表示 -->
                     <!-- 自分自身（ログインユーザ）と、フォローしているユーザーのアイコンを表示、クリックしたらそのユーザのフリートを表示させる -->
                     <tr class="d-sm-none">
-                        <td class="d-flex justify-content-around mx-auto"
+                        <td class="d-flex mx-auto mb-2"
                             style="
                                 /* とりあえず固定。あとでレスポンシブ化する */
-                                width: 300px;
+                                /* width: 310px; */
+                                width: 100vw;
                                 height: 60px;
                                 /* スクロールバー */
                                 overflow-x: auto;
@@ -17,41 +18,33 @@
                                 overflow-scrolling: touch;
                                 /* スクロールを惰性にする */
                                 -webkit-overflow-scrolling: touch;
+                                border-bottom: 1px solid #9DA5B4;
                             "
                         >
-                            <div class="ml-5"></div>
-                            <div class="ml-5 bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
+                            <div class="bg-dark text-white border d-flex align-items-center justify-content-center mx-1"
+                                style="
+                                    min-width: 50px;
+                                    max-width: 50px;
+                                    min-height: 50px;
+                                    max-height: 50px;
+                                    font-size: 10px;
+                                    border-radius: 50%;
+                                "
+                            >
                                 追加する
                             </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
-                            </div>
-                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 10px;">
-                                テスト
+                            <!-- 以下が n 個表示される -->
+                            <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center mx-1"
+                                style="
+                                    min-width: 50px;
+                                    max-width: 50px;
+                                    min-height: 50px;
+                                    max-height: 50px;
+                                    font-size: 8px;
+                                    border-radius: 50%;
+                                "
+                            >
+                                フォロイーの<br>アイコン
                             </div>
                         </td>
                     </tr>
