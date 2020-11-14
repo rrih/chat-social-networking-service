@@ -3,7 +3,7 @@
         <div class="mx-auto">
             <?= $this->Form->create(null, ['url' => '/posts', 'type' => 'get', 'div' => false, 'label' => false, 'class' => 'mt-3']) ?>
                 <table class="w-100">
-                    <!-- TODO フリート機能実装 とりあえずスマホのみ表示 -->
+                    <!-- フリート機能実装 とりあえずスマホのみ表示 -->
                     <!-- 自分自身（ログインユーザ）と、フォローしているユーザーのアイコンを表示、クリックしたらそのユーザのフリートを表示させる -->
                     <tr class="d-sm-none">
                         <td class="d-flex mx-auto mb-2"
@@ -18,7 +18,7 @@
                                 overflow-scrolling: touch;
                                 /* スクロールを惰性にする */
                                 -webkit-overflow-scrolling: touch;
-                                border-bottom: 1px solid #9DA5B4;
+                                border-bottom: 0.5px solid #9DA5B4;
                             "
                         >
                             <div class="bg-dark text-white border d-flex align-items-center justify-content-center mx-1"
@@ -31,7 +31,7 @@
                                     border-radius: 50%;
                                 "
                             >
-                                追加する
+                                <a href="/fleet/add">追加する</a>
                             </div>
                             <!-- 以下が n 個表示される -->
                             <div class="bg-dark text-white border rounded-pill d-flex align-items-center justify-content-center mx-1"
