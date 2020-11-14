@@ -105,7 +105,7 @@ $cakeDescription = 'お気持ち.com';
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="text-decoration-none">
+                    <a href="/messages" class="text-decoration-none">
                         <i class="far fa-envelope"></i>
                     </a>
                 </div>
@@ -169,7 +169,7 @@ $cakeDescription = 'お気持ち.com';
                     </a>
                 </div>
                 <div>
-                    <a href="#" class="text-decoration-none px-4 py-1 text-decoration-none">
+                    <a href="/messages" class="text-decoration-none px-4 py-1 text-decoration-none">
                         <i class="far fa-envelope"></i>
                     </a>
                 </div>

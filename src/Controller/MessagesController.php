@@ -12,6 +12,15 @@ namespace App\Controller;
 class MessagesController extends AppController
 {
     /**
+     * ログインユーザのメッセージしたことある相手の一覧を表示する
+     *
+     * @return void
+     */
+    public function index()
+    {
+
+    }
+    /**
      * View method
      *
      * @param string|null $id Message id.
