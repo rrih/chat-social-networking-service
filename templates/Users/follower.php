@@ -1,10 +1,10 @@
 <div class="container text-center">
-    フォロワー一覧
+    フォロワー
     <ul class="pt-0">
         <?php foreach ($followers as $follower) : ?>
-            <li class="list-unstyled">
+            <div class="border m-2">
                 <a href="/users/profile/<?= $follower->follower_id ?>"><?= $this->Users->getOneUserName($follower->follower_id) ?></a>
-            </li>
+            </div>
         <?php endforeach; ?>
     </ul>
 </div>

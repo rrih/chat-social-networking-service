@@ -13,12 +13,34 @@ class MessagesController extends AppController
 {
     /**
      * ログインユーザのメッセージしたことある相手の一覧を表示する
+     * つまりルームid？
      *
      * @return void
      */
     public function index()
     {
-
+        $this->loadModel('Rooms');
+        // ログインユーザid取得
+        $currentUserId = $this->Authentication->getResult()->getData()->id;
+        // ルームから、user_id または other_user_id が currentUserId と一致する、
+        // もう一方のuser_id(現在のログインユーザではないユーザid)を取得する
+        $idsOfMessageRecipient = $this->Rooms->find()
+            ->select([
+                'user_id', 'other_user_id',
+            ])
+            ->where([
+                'OR' => [
+                    [
+                        'user_id' => $currentUserId,
+                    ],
+                    [
+                        'other_user_id' => $currentUserId,
+                    ]
+                ]
+            ])
+            ->toList();
+        $this->set(compact('currentUserId'));
+        $this->set(compact('idsOfMessageRecipient'));
     }
     /**
      * View method

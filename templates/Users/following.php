@@ -1,10 +1,10 @@
 <div class="container text-center">
-    フォロー一覧
+    フォロー
     <ul class="pt-0">
         <?php foreach ($followings as $following) : ?>
-            <li class="list-unstyled">
+            <div class="border m-2">
                 <a href="/users/profile/<?= $following->following_id ?>"><?= $this->Users->getOneUserName($following->following_id) ?></a>
-            </li>
+            </div>
         <?php endforeach; ?>
     </ul>
 </div>

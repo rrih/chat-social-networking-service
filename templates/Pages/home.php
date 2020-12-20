@@ -97,7 +97,7 @@ $cakeDescription = 'お気持ち.com';
         <div class="container p-0">
             <div class="text-center mt-4">
                 <div class="h3 pt-5">
-                    お気持ち.com (開発中)
+                    お気持ち.com
                 </div>
                 <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings')); ?>
                 <div class="py-5">
