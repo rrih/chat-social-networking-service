@@ -79,6 +79,7 @@ $cakeDescription = 'お気持ち.com';
             background-color: #24292E;
             border-color: #9DA5B4;
         }
+        .
     }
     </style>
 </head>
@@ -99,13 +100,8 @@ $cakeDescription = 'お気持ち.com';
                 <div class="h3 pt-5">
                     お気持ち.com
                 </div>
-                <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings')); ?>
-                <div class="py-5">
-                    <h3>ここは何？🤔</h3>
-                    <p class="py-2" style="font-size: 15px">
-                        お気持ち表明の場
-                    </p>
-                </div>
+                <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings', 'class' => 'pb-3')); ?>
+
                 <div class="border-top border-bottom py-5 h4">
                     お気持ちの数 👉 <?php
                         echo $this->Posts->getPostsCount();
@@ -143,8 +139,13 @@ $cakeDescription = 'お気持ち.com';
                     <div class="h3">
                         更新情報 🎉
                     </div>
-                    2020/10/22 検索機能追加
-                </div>
+                    <ul class="list-unstyled w-75 mx-auto text-left">
+                        <li>2020/12/20 メッセージ機能追加
+                        </li>
+                        <li>2020/10/22 検索機能追加
+                        </li>
+                    </ul>
+
                 <div class="py-5">
                     <div class="h3">ソース <i class="fas fa-laptop-code"></i></div>
                     <a
