@@ -97,10 +97,9 @@ $cakeDescription = 'お気持ち.com';
     <main class="main">
         <div class="container p-0">
             <div class="text-center mt-4">
-                <div class="h3 pt-5">
+                <div class="h3 py-5">
                     お気持ち.com
                 </div>
-                <?= $this->Html->image('feel.png', array('width' => '200', 'alt' => 'expression feelings', 'class' => 'pb-3')); ?>
 
                 <div class="border-top border-bottom py-5 h4">
                     お気持ちの数 👉 <?php
@@ -145,8 +144,8 @@ $cakeDescription = 'お気持ち.com';
                         <li>2020/10/22 検索機能追加
                         </li>
                     </ul>
-
-                <div class="py-5">
+                </div>
+                <div class="border-bottom py-5">
                     <div class="h3">ソース <i class="fas fa-laptop-code"></i></div>
                     <a
                         href="https://github.com/rrih/feel"
