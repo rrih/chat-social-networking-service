@@ -24,9 +24,9 @@ class LikesTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Likes',
-        'app.Users',
-        'app.Posts',
+        // 'app.Likes',
+        // 'app.Users',
+        // 'app.Posts',
     ];
 
     /**
