@@ -344,12 +344,13 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
-            'datasource' => 'Cake\Database\Driver\Mysql',
+            // 'datasource' => 'Cake\Database\Driver\Mysql',
             // 'persistent' => false,
-            'host' => 'dbhost',
-            'username' => 'dblogin',
-            'password' => 'dbpassword',
-            'database' => 'test_database'
+            'host' => getenv('DB_HOST'),
+            //'port' => 'non_standard_port_number',
+            'username' => getenv('DB_USERNAME'),
+            'password' => getenv('DB_PASSWORD'),
+            'database' => getenv('DB_DATABASE'),
         ],
     ],
 
