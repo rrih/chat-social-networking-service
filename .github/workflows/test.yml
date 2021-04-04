@@ -13,6 +13,14 @@ jobs:
       matrix:
         php-version: ['7.3']
 
+    services:
+      mysql:
+        image: mysql:5.6
+        options: --health-cmd "mysqladmin ping -h localhost" --health-interval 20s --health-timeout 10s --health-retries 10
+        env:
+          MYSQL_ROOT_PASSWORD: root
+
+
     steps:
     - name: Setup PHP ${{ matrix.php-version }}
       uses: shivammathur/setup-php@v2
@@ -27,6 +35,9 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Start MySQL
+      run: sudo systemctl start mysql
 
     - name: Run test
       run: composer run-script test

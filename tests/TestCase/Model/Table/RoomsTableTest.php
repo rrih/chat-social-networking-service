@@ -24,11 +24,10 @@ class RoomsTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Rooms',
-        'app.Users',
-        // 'app.OtherUsers',
-        'app.Entries',
-        'app.Messages',
+        // 'app.Rooms',
+        // 'app.Users',
+        // 'app.Entries',
+        // 'app.Messages',
     ];
 
     /**

@@ -24,8 +24,8 @@ class PostsTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Posts',
-        'app.Users',
+        // 'app.Posts',
+        // 'app.Users',
     ];
 
     /**
