@@ -19,7 +19,6 @@ jobs:
       with:
         php-version: ${{ matrix.php-version }}
 
-    steps:
     - name: Checkout
       uses: actions/checkout@v2
 
