@@ -344,6 +344,12 @@ return [
             'quoteIdentifiers' => false,
             'log' => false,
             //'init' => ['SET GLOBAL innodb_stats_on_metadata = 0'],
+            'datasource' => 'Cake\Database\Driver\Mysql',
+            // 'persistent' => false,
+            'host' => 'dbhost',
+            'username' => 'dblogin',
+            'password' => 'dbpassword',
+            'database' => 'test_database'
         ],
     ],
 

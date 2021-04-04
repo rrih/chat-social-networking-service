@@ -20,6 +20,11 @@ $ composer install
 $ bin/cake server
 ```
 
+### Testing
+```bash
+$ composer run-script test
+```
+
 ## production environment
 [URL](https://feel-prod.herokuapp.com)
 
